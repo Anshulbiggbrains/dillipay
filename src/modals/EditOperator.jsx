@@ -96,7 +96,7 @@ const EditOperator = ({ row, refresh }) => {
     
       >
         <Box sx={{width:400}} className="sm_modal">
-          <ModalHeader title="Operator" handleClose={handleClose}subtitle="Easily Modify Operator Details with VdeePay" />
+          <ModalHeader title="Operator" handleClose={handleClose}subtitle="Easily Modify Operator Details with DilliPay" />
           <Box
             component="form"
             id="edit-operator"

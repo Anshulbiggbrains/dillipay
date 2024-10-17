@@ -109,7 +109,7 @@ const WalletDebitModal = ({ row }) => {
       >
         <Box sx={{width:400}} className="sm_modal">
           <Loader loading={request} />
-          <ModalHeader title="Wallet Debit"subtitle="Spend Smart: Effortless Wallet Debit with VdeePay!" handleClose={handleClose} />
+          <ModalHeader title="Wallet Debit"subtitle="Spend Smart: Effortless Wallet Debit with DilliPay!" handleClose={handleClose} />
 
           <Box
             component="form"

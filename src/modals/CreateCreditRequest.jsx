@@ -164,7 +164,7 @@ const CreateCreditRequest = ({ refresh }) => {
           <ModalHeader
             title="Add Credit Request"
             handleClose={handleClose}
-            subtitle="Quickly Request Credit with VdeePay Now!"
+            subtitle="Quickly Request Credit with DilliPay Now!"
           />
           <Box
             component="form"

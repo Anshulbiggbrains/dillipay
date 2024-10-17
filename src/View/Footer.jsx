@@ -75,7 +75,7 @@ const Footer = () => {
                     borderRadius: "4px",
                     padding: "2px",
                     background:
-                      process.env.REACT_APP_TITLE === "VdeePay"
+                      process.env.REACT_APP_TITLE === "DilliPay"
                         ? ""
                         : "#ffffff",
                   }}
@@ -87,7 +87,7 @@ const Footer = () => {
               <div className="address-style" style={{ marginTop: "15px" }}>
                 {getFirmAddress()}
               </div>
-              {process.env.REACT_APP_TITLE !== "VdeePay" && (
+              {process.env.REACT_APP_TITLE !== "DilliPay" && (
                 <div
                   style={{
                     display: "flex",
@@ -234,7 +234,7 @@ const Footer = () => {
             <Grid md={12} sx={{ textAlign: "center", px: 4, mt: 1 }}>
               <Typography sx={{ color: "#fff", fontSize: "14px", mt: 1 }}>
                 <span className="mx-1">© Copyright 2023</span>
-                {process.env.REACT_APP_TITLE === "VdeePay"
+                {process.env.REACT_APP_TITLE === "DilliPay"
                   ? "LINKSTECH "
                   : process.env.REACT_APP_TITLE === "PaisaKart"
                   ? "PEHEKART WALLET (OPC)"

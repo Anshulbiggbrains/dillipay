@@ -1,44 +1,44 @@
 export const primaryColor = () => {
-  if (process.env.REACT_APP_TITLE === "VdeePay") {
+  if (process.env.REACT_APP_TITLE === "DilliPay") {
     return "#ff9d5c";
   }
 };
 export const primaryLight = () => {
-  if (process.env.REACT_APP_TITLE === "VdeePay") {
+  if (process.env.REACT_APP_TITLE === "DilliPay") {
     return "#1877F2";
   }
 };
 export const primaryLightest = () => {
-  if (process.env.REACT_APP_TITLE === "VdeePay") {
+  if (process.env.REACT_APP_TITLE === "DilliPay") {
     return "#baa7d1";
   }
 };
 export const secondaryColor = () => {
-  if (process.env.REACT_APP_TITLE === "VdeePay") {
+  if (process.env.REACT_APP_TITLE === "DilliPay") {
     return "#004792";
   }
 };
 
 export const getHoverActive = () => {
-  if (process.env.REACT_APP_TITLE === "VdeePay") {
+  if (process.env.REACT_APP_TITLE === "DilliPay") {
     return "#231942";
   }
 };
 export const getHoverInActive = () => {
-  if (process.env.REACT_APP_TITLE === "VdeePay") {
+  if (process.env.REACT_APP_TITLE === "DilliPay") {
     return "#4045A1";
   }
 };
 
 export const getTableHeadRowColor = () => {
-  if (process.env.REACT_APP_TITLE === "VdeePay") {
+  if (process.env.REACT_APP_TITLE === "DilliPay") {
     return "#E49B0F";
   }
 };
 
 export const getEnv = () => {
-  if (process.env.REACT_APP_TITLE === "VdeePay") {
-    return "VdeePay";
+  if (process.env.REACT_APP_TITLE === "DilliPay") {
+    return "DilliPay";
   }
 };
 export const blackColor = () => {
@@ -50,7 +50,7 @@ export const whiteColor = () => {
 
 // user icon bg color change functions . . . .
 export const getUserColor = (role) => {
-  if (process.env.REACT_APP_TITLE === "VdeePay") {
+  if (process.env.REACT_APP_TITLE === "DilliPay") {
     if (role === "Asm") {
       return "#1C2E46";
     } else if (role === "ZSM") {
@@ -135,18 +135,18 @@ export const getStatusColor = (status) => {
 };
 
 export const getFirmAddress = () => {
-  if (process.env.REACT_APP_TITLE === "VdeePay") {
+  if (process.env.REACT_APP_TITLE === "DilliPay") {
     return `Flat NO.54-A GROUND FLOOR, TYPE-11 BLOCK-5 SEC-3 DSIDC,BAWANA,NORTH WEST DELHI,DELHI-110039`;
   }
 };
 export const getFirmContact = () => {
-  if (process.env.REACT_APP_TITLE === "VdeePay") {
+  if (process.env.REACT_APP_TITLE === "DilliPay") {
     return `0000000000`;
   }
 };
 export const getFirmEmail = () => {
-  if (process.env.REACT_APP_TITLE === "VdeePay") {
-    return `help@VdeePay.com`;
+  if (process.env.REACT_APP_TITLE === "DilliPay") {
+    return `help@DilliPay.com`;
   }
 };
 

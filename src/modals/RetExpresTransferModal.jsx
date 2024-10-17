@@ -438,7 +438,7 @@ const RetExpresTransferModal = ({
         aria-describedby="modal-modal-description"
       >
         <Box sx={style} className="sm_modal">
-          <ModalHeader title={view + `(${type})`} handleClose={handleClose} subtitle="Send Money Securely Anytime with VdeePay!" />
+          <ModalHeader title={view + `(${type})`} handleClose={handleClose} subtitle="Send Money Securely Anytime with DilliPay!" />
           <Box
             component="form"
             id="expMoneyTransfer"

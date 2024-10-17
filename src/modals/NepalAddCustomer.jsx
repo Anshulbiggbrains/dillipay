@@ -251,7 +251,7 @@ const NepalAddCustomer = ({
       {open && (
         <Box>
           <Loader loading={request} />
-          <ModalHeader title="Add Customer" subtitle="Join the Network: Register Your Nepal Account with VdeePay!" handleClose={handleClose} />
+          <ModalHeader title="Add Customer" subtitle="Join the Network: Register Your Nepal Account with DilliPay!" handleClose={handleClose} />
           <Box
             component="form"
             id="nepal_add_cus"

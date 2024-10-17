@@ -655,7 +655,7 @@ const PaymentReceipt = () => {
                         fontFamily: "'Roboto', sans-serif",
                       }}
                     >
-                      Email: VdeePay@gmail.com
+                      Email: DilliPay@gmail.com
                     </Typography>
                   </Box>
 

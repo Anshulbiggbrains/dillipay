@@ -127,7 +127,7 @@ const AddBlockedAccount = ({ refresh }) => {
             <ModalHeader
               title="Add Account"
               handleClose={handleClose}
-              subtitle="Easily Add New Accounts with VdeePay"
+              subtitle="Easily Add New Accounts with DilliPay"
             />
             <Box
               component="form"

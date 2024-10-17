@@ -89,10 +89,10 @@ const UploadInvoice = () => {
             }}
           >
             I confirm that the invoice being uploaded is based upon the
-            commission summary provided by VdeePay. Upon verification of the
-            invoice by VdeePay, GST credit of{" "}
+            commission summary provided by DilliPay. Upon verification of the
+            invoice by DilliPay, GST credit of{" "}
             <span style={{ color: "red" }}>₹000000</span> will be credited to
-            your VdeePay account.
+            your DilliPay account.
           </Typography>
 
           {/* Native DatePicker */}
