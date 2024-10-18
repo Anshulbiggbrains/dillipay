@@ -145,20 +145,20 @@ const FilterCard = ({
     }
   };
 
-  useEffect(() => {
-    if(ifstatusFilter2){
-    let filter = "";
-    if (filterValues.date.start || filterValues.date.end) {
-      filter =
-        filter +
-        (filter ? "&" : "") +
-        "start=" +
-        filterValues.date.start +
-        "&end=" +
-        filterValues.date.end;
-    }
-    setQuery(filter)
- } })
+//   useEffect(() => {
+//     if(ifstatusFilter2){
+//     let filter = "";
+//     if (filterValues.date.start || filterValues.date.end) {
+//       filter =
+//         filter +
+//         (filter ? "&" : "") +
+//         "start=" +
+//         filterValues.date.start +
+//         "&end=" +
+//         filterValues.date.end;
+//     }
+//     setQuery(filter)
+//  } })
 
 
   const getRouteValApi = () => {
