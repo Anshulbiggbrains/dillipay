@@ -11,7 +11,7 @@ export const CustomStyles = {
   headRow: {
     style: {
       border: "none",
-      color: "#fff",
+      color: "white",
       backgroundColor: getTableHeadRowColor(),
       fontFamily: "Poppins",
       paddingLeft: "8px",
