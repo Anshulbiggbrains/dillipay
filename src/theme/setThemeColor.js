@@ -136,17 +136,17 @@ export const getStatusColor = (status) => {
 
 export const getFirmAddress = () => {
   if (process.env.REACT_APP_TITLE === "DilliPay") {
-    return `Flat NO.54-A GROUND FLOOR, TYPE-11 BLOCK-5 SEC-3 DSIDC,BAWANA,NORTH WEST DELHI,DELHI-110039`;
+    return `Plot No.5 , Second Floor ,Pocket-5, Rohini Sector 24, New Delhi 110085`;
   }
 };
 export const getFirmContact = () => {
   if (process.env.REACT_APP_TITLE === "DilliPay") {
-    return `0000000000`;
+    return `+91 9811434488`;
   }
 };
 export const getFirmEmail = () => {
   if (process.env.REACT_APP_TITLE === "DilliPay") {
-    return `help@DilliPay.com`;
+    return `Support@dillipay.com`;
   }
 };
 

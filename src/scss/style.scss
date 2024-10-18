@@ -686,10 +686,11 @@ body {
   padding: 2rem;
   width: "100%";
   height: auto;
+  background: #009688;
   // background: linear-gradient(to left, rgb(158, 192, 255), #ff8eae);
 }
 .footer-head-text {
-  color: $off-white;
+  color: $black-color;
   font-size: 17px;
   font-weight: 700;
   margin-bottom: 30px;
@@ -699,16 +700,19 @@ body {
   font-family: "poppins";
   font-size: 1rem;
   text-align: left;
-  color: $white-color;
+  color: $black-color;
   font-weight: 400;
 }
 .text-style {
   text-align: left;
-  color: $white-color;
+  color: $black-color;
   font-size: 15px;
   margin-top: 5px;
   cursor: pointer;
+
 }
+
+
 .icon-bg {
   align-items: center;
   background-color: $white-color;
