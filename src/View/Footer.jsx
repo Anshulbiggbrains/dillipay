@@ -232,7 +232,7 @@ const Footer = () => {
               <div className="text-style text-lowercase">{getFirmEmail()}</div>
             </Grid>
             <Grid md={12} sx={{ textAlign: "center", px: 4, mt: 1 }}>
-              <Typography sx={{ color: "#fff", fontSize: "14px", mt: 1 }}>
+              <Typography sx={{ color: "#000", fontSize: "14px", mt: 1 }}>
                 <span className="mx-1">© Copyright 2023</span>
                 {process.env.REACT_APP_TITLE === "DilliPay"
                   ? "LINKSTECH "
@@ -243,7 +243,7 @@ const Footer = () => {
                   Services Pvt Ltd. All Rights Reserve
                 </span>
               </Typography>
-              <Typography sx={{ color: "#fff", fontSize: "14px", mt: 0.5 }}>
+              <Typography sx={{ color: "#000", fontSize: "14px", mt: 0.5 }}>
                 Disclaimer:  Any dispute arising under these terms and
                 conditions shall be subject to the jurisdiction of the courts of
                 Delhi.
