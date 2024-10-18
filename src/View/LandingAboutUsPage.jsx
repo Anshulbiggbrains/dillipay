@@ -674,7 +674,7 @@ const LandingAboutUsPage = () => {
                                 alignItems: "flex-start",
                               }}
                             >
-                              <IntegrationInstructionsIcon
+                              <EmojiObjectsIcon
                                 sx={{
                                   fontSize: "50px",
                                   color: "#1b5e20",
@@ -732,7 +732,7 @@ const LandingAboutUsPage = () => {
                                 alignItems: "flex-start",
                               }}
                             >
-                              <ShutterSpeedIcon
+                              <EmojiObjectsIcon
                                 sx={{
                                   fontSize: "50px",
                                   color: "#1b5e20",
@@ -801,7 +801,7 @@ const LandingAboutUsPage = () => {
                     component="span"
                     sx={{
                       backgroundColor:
-                        envName === "MoneyOddr" ? "#EC9706" : "#ED7014",
+                        envName === "MoneyOddr" ? "#EC9706" : "#FD908E",
                       color: "#fff",
                       width: "70px",
                       height: "70px",
@@ -815,7 +815,7 @@ const LandingAboutUsPage = () => {
                   </Box>
                   <span
                     className="landingPageHeadings"
-                    style={{ letterSpacing: "0.2rem", color: "#fff" }}
+                    style={{ letterSpacing: "0.2rem", color: "#000" }}
                   >
                     Our Vission
                   </span>
@@ -885,7 +885,7 @@ const LandingAboutUsPage = () => {
                     component="span"
                     sx={{
                       backgroundColor:
-                        envName === "MoneyOddr" ? "#2C3D69" : "#ED7014",
+                        envName === "MoneyOddr" ? "#2C3D69" : "#FD908E",
                       color: "#fff",
                       width: {
                         lg: "70px",
@@ -904,7 +904,7 @@ const LandingAboutUsPage = () => {
                   </Box>
                   <span
                     className="landingPageHeadings"
-                    style={{ letterSpacing: "0.2rem", color: "#fff" }}
+                    style={{ letterSpacing: "0.2rem", color: "#000" }}
                   >
                     Our Mission
                   </span>
@@ -968,7 +968,7 @@ const LandingAboutUsPage = () => {
                     component="span"
                     sx={{
                       backgroundColor:
-                        envName === "MoneyOddr" ? "#2C3D69" : "#ED7014",
+                        envName === "MoneyOddr" ? "#2C3D69" : "#FD908E",
                       color: "#fff",
                       width: "70px",
                       height: "70px",
@@ -982,7 +982,7 @@ const LandingAboutUsPage = () => {
                   </Box>
                   <span
                     className="landingPageHeadings"
-                    style={{ letterSpacing: "0.2rem", color: "#fff" }}
+                    style={{ letterSpacing: "0.2rem", color: "#000" }}
                   >
                     Our Values
                   </span>

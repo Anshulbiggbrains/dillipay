@@ -229,6 +229,7 @@ export default function Navbar(props) {
                   boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
                   transition: "transform 0.3s, box-shadow 0.3s",
                   "&:hover": {
+                    background: "#319B88",
                     transform: "scale(1.05)",
                     boxShadow: "0 6px 20px rgba(0, 0, 0, 0.3)",
                   },
@@ -270,7 +271,11 @@ export default function Navbar(props) {
                     key={item.to}
                     onClick={handleCloseNavMenu}
                     sx={{
-                      background: "linear-gradient(to right, #7fb4f9, #ee5f5f)",
+                      background: "#319B88",
+                      color:"#fff",
+                      "&:hover": {
+                        background: "#319B88",
+                      }
                     }}
                   >
                     <Link to={item.to} className="navLinks">
