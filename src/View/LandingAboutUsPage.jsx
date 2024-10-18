@@ -307,8 +307,8 @@ const LandingAboutUsPage = () => {
       </Grid>
       <>
         {envName !== "MoneyOddr" && (
-          <>
-            <Container maxWidth="lg" sx={{ my: 15 }} className="sectionBreake">
+          <div className="builSecurity_bg">
+            <Container maxWidth="lg" sx={{ my: 15 }} >
               <Grid container xs={12} className="top2Bottom ">
                 <Box
                   sx={{
@@ -326,7 +326,7 @@ const LandingAboutUsPage = () => {
                 <Card
                   sx={{
                     boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-                    background: "#FCEAFD",
+                    background: "#FD908E",
                     width: { lg: "60%", md: "70%", sm: "80%", xs: "90%" },
                     p: 4,
                     mx: 3,
@@ -353,10 +353,11 @@ const LandingAboutUsPage = () => {
                 </Card>
               </Container>
             </Grid>
-          </>
+          </div>
         )}
 
         {/* what we do */}
+        <div className="builSecurity_bg">
         <Container maxWidth="lg" sx={{ mt: 10 }} className="bottom2top">
           <div className="landingPageHeadings ">
             {/* {envName === "MoneyOddr" ? "Why Choose Us" : "What We Do"} */}
@@ -1008,6 +1009,7 @@ const LandingAboutUsPage = () => {
             </Grid>
           </Grid>
         </Container>
+        </div>
       </>
     </div>
   );
