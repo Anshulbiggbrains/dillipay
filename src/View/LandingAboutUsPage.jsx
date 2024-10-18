@@ -64,7 +64,7 @@ const LandingAboutUsPage = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
   return (
-    <div id="about-us " className="aboutUs">
+    <div id="about-us ">
       <Grid container className="builSecurity_bg">
         {/* about us */}
         <Grid md={12} xs={12}>
