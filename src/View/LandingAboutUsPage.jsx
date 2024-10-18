@@ -1,6 +1,7 @@
 import {
   Avatar,
   Card,
+  CardContent,
   Grid,
   List,
   ListItem,
@@ -9,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Box, Container } from "@mui/system";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { aboutUs } from "../iconsImports";
 import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 import { getEnv, primaryColor } from "../theme/setThemeColor";
@@ -22,6 +23,7 @@ import TrendingUpOutlinedIcon from "@mui/icons-material/TrendingUpOutlined";
 import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
 import LockClockOutlinedIcon from "@mui/icons-material/LockClockOutlined";
 import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlined";
+import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
 
 const mWhyChooseUs = [
   {
@@ -59,9 +61,14 @@ const mWhyChooseUs = [
 ];
 const LandingAboutUsPage = () => {
   const envName = getEnv();
+
+  const [isMounted, setIsMounted] = useState(false);
   useEffect(() => {
     // 👇️ scroll to top on page load
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+  useEffect(() => {
+    setIsMounted(true); // Trigger the fade-in effect when the component mounts
   }, []);
   return (
     <div id="about-us ">
@@ -350,7 +357,8 @@ const LandingAboutUsPage = () => {
         {/* what we do */}
         <Container maxWidth="lg" sx={{ mt: 10 }} className="bottom2top">
           <div className="landingPageHeadings ">
-            {envName === "MoneyOddr" ? "Why Choose Us" : "What We Do"}
+            {/* {envName === "MoneyOddr" ? "Why Choose Us" : "What We Do"} */}
+            <h1>Embrace the future of finance.</h1>
           </div>
 
           {envName === "MoneyOddr" ? (
@@ -363,7 +371,7 @@ const LandingAboutUsPage = () => {
                   my: 5,
                 }}
               >
-                <Typography variant="h6" sx={{ fontWeight: "600" }}>
+                <Typography variant="h4" sx={{ fontWeight: "600" }}>
                   Attractive Commision
                 </Typography>
                 <Typography variant="body">
@@ -409,7 +417,7 @@ const LandingAboutUsPage = () => {
                               sx={{ ml: 8 }}
                               primary={
                                 <Typography
-                                  variant="h6"
+                                  variant="h4"
                                   sx={{ fontWeight: "600" }}
                                 >
                                   {item.title}
@@ -433,119 +441,312 @@ const LandingAboutUsPage = () => {
             </>
           ) : (
             <>
-              <Grid container sx={{ mt: 5 }}>
+              <Container maxWidth="lg" sx={{ mt: 10 }}>
                 <Grid
-                  lg={4}
-                  md={4}
-                  sm={12}
-                  xs={12}
+                  container
+                  spacing={2}
+                  alignItems="center"
+                  justifyContent="center"
                   sx={{
-                    mt: { lg: 2, md: 2, sm: 3, xs: 3 },
-                    px: { lg: 1, md: 1, sm: 0, xs: 0 },
+                    opacity: isMounted ? 1 : 0,
+                    animation: isMounted ? "fadeIn 1s ease-in-out" : "none",
                   }}
                 >
-                  <div div className="whatWedoCard-hilight">
-                    <div
-                      style={{
-                        fontSize: "1.8rem",
-                        fontWeight: 400,
-                        color: "#fff",
+                  <Grid
+                    item
+                    container
+                    xs={12}
+                    sm={6}
+                    md={3}
+                    direction="column"
+                    spacing={2}
+                    sx={{
+                      mr: 10,
+                    }}
+                  >
+                    <Grid item>
+                      <Card
+                        sx={{
+                          width: "300px",
+                          height: "270px",
+                          margin: "10px",
+                          textAlign: "center",
+                          backgroundColor: "#e0f2f1",
+                          borderRadius: "16px",
+                          boxShadow: "0px 4px 20px rgba(0, 128, 0, 0.2)",
+                          transition:
+                            "transform 0.3s ease, box-shadow 0.3s ease",
+                          "&:hover": {
+                            transform: "scale(1.05)",
+                            boxShadow: "0px 6px 25px rgba(0, 128, 0, 0.3)",
+                          },
+                        }}
+                      >
+                        <CardContent>
+                          <Box
+                            sx={{
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "flex-end",
+                              alignItems: "flex-end",
+                            }}
+                          >
+                            {/* Innovation Icon aligned to the right */}
+                            <EmojiObjectsIcon
+                              sx={{
+                                fontSize: "50px",
+                                color: "#1b5e20",
+                                marginBottom: "10px",
+                              }}
+                            />
+                            <Typography
+                              variant="h4"
+                              sx={{
+                                color: "#1b5e20",
+                                fontWeight: "bold",
+                                textAlign: "right",
+                              }}
+                            >
+                              Innovation
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                textAlign: "right",
+                                fontSize: "20px",
+                              }}
+                            >
+                              Cutting-edge technology and continuous
+                              improvements to stay ahead of the curve.
+                            </Typography>
+                          </Box>
+                        </CardContent>
+                      </Card>
+                    </Grid>
+                    <Grid item>
+                      <Card
+                        sx={{
+                          width: "300px",
+                          height: "270px",
+                          margin: "10px",
+                          textAlign: "center",
+                          backgroundColor: "#e0f2f1",
+                          borderRadius: "16px",
+                          boxShadow: "0px 4px 20px rgba(0, 128, 0, 0.2)",
+                          transition:
+                            "transform 0.3s ease, box-shadow 0.3s ease",
+                          "&:hover": {
+                            transform: "scale(1.05)",
+                            boxShadow: "0px 6px 25px rgba(0, 128, 0, 0.3)",
+                          },
+                        }}
+                      >
+                        <CardContent>
+                          <Box
+                            sx={{
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "flex-end",
+                              alignItems: "flex-end",
+                            }}
+                          >
+                            <EmojiObjectsIcon
+                              sx={{
+                                fontSize: "50px",
+                                color: "#1b5e20",
+                                marginBottom: "10px",
+                              }}
+                            />
+                            <Typography
+                              variant="h4"
+                              sx={{
+                                color: "#1b5e20",
+                                fontWeight: "bold",
+                                textAlign: { lg: "right", sm: "center" },
+                              }}
+                            >
+                              Security
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                fontSize: "20px",
+                                textAlign: { lg: "right", sm: "center" },
+                              }}
+                            >
+                              Robust security measures to protect your
+                              transactions and sensitive data.
+                            </Typography>
+                          </Box>
+                        </CardContent>
+                      </Card>
+                    </Grid>
+                  </Grid>
+
+                  {/* Center: 1 card */}
+                  <Grid item xs={12} sm={6} md={3}>
+                    <Card
+                      sx={{
+                        width: "300px",
+                        height: "270px",
+                        margin: "10px",
+                        textAlign: "center",
+                        backgroundColor: "#e8f5e9",
+                        borderRadius: "16px",
+                        boxShadow: "0px 4px 20px rgba(0, 128, 0, 0.2)",
+                        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                        "&:hover": {
+                          transform: "scale(1.05)",
+                          boxShadow: "0px 6px 25px rgba(0, 128, 0, 0.3)",
+                        },
                       }}
                     >
-                      Multiple Banking <br /> Services
-                    </div>
-                    <div className="landing-bg_para" style={{ color: "#fff" }}>
-                      We offer a wide range of digital banking services,
-                      including online banking, mobile banking, savings and
-                      checking accounts, insurance, and more. Our aim is to
-                      provide a comprehensive suite of services that cater to
-                      the diverse financial needs of our customers.
-                    </div>
-                    <div>
-                      <TipsAndUpdatesIcon
+                      <CardContent>
+                        <Typography
+                          variant="h4"
+                          sx={{ color: "#2e7d32", fontWeight: "bold" }}
+                        >
+                          Card 3
+                        </Typography>
+                        <Typography variant="body2">
+                          Description goes here.
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+
+                  {/* Right side: 2 cards, one above the other */}
+                  <Grid
+                    item
+                    container
+                    xs={12}
+                    sm={6}
+                    md={3}
+                    direction="column"
+                    spacing={2}
+                    sx={{
+                      ml: 10,
+                    }}
+                  >
+                    <Grid item>
+                      <Card
                         sx={{
-                          fontSize: "80px",
-                          color: "#fff",
-                          mt: 1,
+                          width: "300px",
+                          height: "270px",
+                          margin: "10px",
+                          textAlign: "center",
+                          backgroundColor: "#e8f5e9",
+                          borderRadius: "16px",
+                          boxShadow: "0px 4px 20px rgba(0, 128, 0, 0.2)",
+                          transition:
+                            "transform 0.3s ease, box-shadow 0.3s ease",
+                          "&:hover": {
+                            transform: "scale(1.05)",
+                            boxShadow: "0px 6px 25px rgba(0, 128, 0, 0.3)",
+                          },
                         }}
-                      />
-                    </div>
-                  </div>
-                </Grid>
-                <Grid
-                  lg={4}
-                  md={4}
-                  sm={12}
-                  xs={12}
-                  sx={{
-                    mt: { lg: 2, md: 2, sm: 3, xs: 3 },
-                    px: { lg: 1, md: 1, sm: 0, xs: 0 },
-                  }}
-                >
-                  <div div className="whatWedoCard">
-                    <div className="whatWeDo-bg_heading">
-                      We provide banking and financial services by using safe
-                      and secure technology to assist people with:
-                    </div>
-                    <div
-                      style={{
-                        fontSize: "1rem",
-                        fontWeight: 200,
-                        marginTop: "10px",
-                      }}
-                    >
-                      Bill payments and recharges,Banking services,Payment and
-                      cash collection services, Travel and e-governance
-                      services, Khata management services
-                    </div>
-                    <div>
-                      <TipsAndUpdatesIcon
+                      >
+                        <CardContent>
+                          <Box
+                            sx={{
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "flex-start",
+                              alignItems: "flex-start",
+                            }}
+                          >
+                            <EmojiObjectsIcon
+                              sx={{
+                                fontSize: "50px",
+                                color: "#1b5e20",
+                                marginBottom: "10px",
+                              }}
+                            />
+                            <Typography
+                              variant="h4"
+                              sx={{
+                                color: "#1b5e20",
+                                fontWeight: "bold",
+                                textAlign: { lg: "left", sm: "center" },
+                              }}
+                            >
+                              Integration
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                fontSize: "20px",
+                                textAlign: { lg: "left", sm: "center" },
+                              }}
+                            >
+                              Smoothly integrate with diverse platforms,
+                              websites, and apps for seamless payment.
+                            </Typography>
+                          </Box>
+                        </CardContent>
+                      </Card>
+                    </Grid>
+                    <Grid item>
+                      <Card
                         sx={{
-                          fontSize: "80px",
-                          color: "",
-                          mt: 1,
+                          width: "300px",
+                          height: "270px",
+                          margin: "10px",
+                          textAlign: "center",
+                          backgroundColor: "#e8f5e9",
+                          borderRadius: "16px",
+                          boxShadow: "0px 4px 20px rgba(0, 128, 0, 0.2)",
+                          transition:
+                            "transform 0.3s ease, box-shadow 0.3s ease",
+                          "&:hover": {
+                            transform: "scale(1.05)",
+                            boxShadow: "0px 6px 25px rgba(0, 128, 0, 0.3)",
+                          },
                         }}
-                      />
-                    </div>
-                  </div>
+                      >
+                        <CardContent>
+                          <Box
+                            sx={{
+                              display: "flex",
+                              flexDirection: "column",
+                              justifyContent: "flex-start",
+                              alignItems: "flex-start",
+                            }}
+                          >
+                            <EmojiObjectsIcon
+                              sx={{
+                                fontSize: "50px",
+                                color: "#1b5e20",
+                                marginBottom: "10px",
+                              }}
+                            />
+                            <Typography
+                              variant="h4"
+                              sx={{
+                                color: "#1b5e20",
+                                fontWeight: "bold",
+                                textAlign: { lg: "left", sm: "center" },
+                              }}
+                            >
+                              Speed
+                            </Typography>
+                            <Typography
+                              variant="body2"
+                              sx={{
+                                fontSize: "20px",
+                                textAlign: { lg: "left", sm: "center" },
+                              }}
+                            >
+                              Fast transaction processing to keep your payments
+                              moving without delays.
+                            </Typography>
+                          </Box>
+                        </CardContent>
+                      </Card>
+                    </Grid>
+                  </Grid>
                 </Grid>
-                <Grid
-                  lg={4}
-                  md={4}
-                  sm={12}
-                  xs={12}
-                  sx={{
-                    mt: { lg: 2, md: 2, sm: 3, xs: 3 },
-                    px: { lg: 1, md: 1, sm: 0, xs: 0 },
-                  }}
-                >
-                  <div div className="whatWedoCard">
-                    <div className="whatWeDo-bg_heading">
-                      We network with -Retailers,Distributors
-                    </div>
-                    <div
-                      style={{
-                        fontSize: "1rem",
-                        fontWeight: 200,
-                        marginTop: "10px",
-                      }}
-                    >
-                      Enable them to increase earnings, provide loan facilities,
-                      provide branding and discounted services, provide
-                      no-rental digital payment devices.
-                    </div>
-                    <div>
-                      <TipsAndUpdatesIcon
-                        sx={{
-                          fontSize: "80px",
-                          color: "",
-                          mt: 1,
-                        }}
-                      />
-                    </div>
-                  </div>
-                </Grid>
-              </Grid>
+              </Container>
             </>
           )}
 
