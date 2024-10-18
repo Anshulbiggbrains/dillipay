@@ -207,10 +207,15 @@ const LandingContactUsPage = () => {
                     sx={{
                       width: "100%",
                       mt: 3,
-                      bgcolor: 'primary.main',
+                      padding:"10px",
+                      // bgcolor: 'primary.main',
+                      // '&:hover': {
+                      //   bgcolor: 'primary.dark',
+                      // },
+                      backgroundColor:"#009688",
                       '&:hover': {
-                        bgcolor: 'primary.dark',
-                      },
+                        bgcolor: "#009688",
+                       },
                       borderRadius: 2,
                       boxShadow: 2,
                     }}
