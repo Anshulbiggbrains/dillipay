@@ -37,33 +37,6 @@ const LandingPageIntro = () => {
                     payment.
                   </h1>
                 </div>
-                {/* <div className="landing-bg_biggpay_font">
-                  {process.env.REACT_APP_TITLE === "MoneyOddr" ? (
-                    <>
-                      <span className="header_money_text"> Money</span>
-                      <span
-                        className="header_oddr_text"
-                        style={{
-                          color: secondaryColor(),
-                          marginLeft: "10px",
-                        }}
-                      >
-                        OddR
-                      </span>
-                    </>
-                  ) : (
-                    <div
-                      style={{
-                        color: "#FE0000",
-                        // fontStyle: "italic",
-                        marginLeft: "9px",
-                        fontSize: "2.5rem",
-                      }}
-                    >
-                      {process.env.REACT_APP_TITLE}
-                    </div>
-                  )}
-                </div> */}
               </div>
               <div className="lineUpDelay">
                 {process.env.REACT_APP_TITLE === "MoneyOddr" ? (
