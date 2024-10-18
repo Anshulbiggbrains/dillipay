@@ -17,6 +17,9 @@ import { contact_Us, contact_us, moSupport } from "../iconsImports";
 import { PATTERNS } from "../utils/ValidationUtil";
 import PhoneIcon from '@mui/icons-material/Phone'; // Import the mobile icon
 import PersonIcon from '@mui/icons-material/Person';
+import MessageIcon from '@mui/icons-material/Message';
+import LocationCityIcon from '@mui/icons-material/LocationCity';
+import BusinessIcon from '@mui/icons-material/Business';
 import {
   primaryColor,
   getEnv,
@@ -168,9 +171,16 @@ const LandingContactUsPage = () => {
                         <TextField
                           autoComplete="off"
                           id="c_city"
-                          label="City"
+                          placeholder="City"
                           variant="outlined"
                           required
+                          InputProps={{
+                            startAdornment: (
+                              <InputAdornment position="start">
+                                <LocationCityIcon />
+                              </InputAdornment>
+                            ),
+                          }}
                           sx={{ bgcolor: 'white' }}
                         />
                       </FormControl>
@@ -180,9 +190,16 @@ const LandingContactUsPage = () => {
                         <TextField
                           autoComplete="off"
                           id="c_company"
-                          label="Company/Organization"
+                          placeholder="Company/Organization"
                           variant="outlined"
                           required
+                          InputProps={{
+                            startAdornment: (
+                              <InputAdornment position="start">
+                                <BusinessIcon />
+                              </InputAdornment>
+                            ),
+                          }}
                           sx={{ bgcolor: 'white' }}
                         />
                       </FormControl>
@@ -193,9 +210,15 @@ const LandingContactUsPage = () => {
                           autoComplete="off"
                           multiline
                           id="c_message"
-                          rows={3}
-                          label="Your Message"
+                          placeholder="Your Message"
                           required
+                          InputProps={{
+                            startAdornment: (
+                              <InputAdornment position="start">
+                                <MessageIcon />
+                              </InputAdornment>
+                            ),
+                          }}
                           sx={{ bgcolor: 'white' }}
                         />
                       </FormControl>
