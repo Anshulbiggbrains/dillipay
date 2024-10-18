@@ -42,7 +42,7 @@ const LandingPageWeOffer = () => {
   ];
 
   return (
-    <Box sx={{ background: "#f5eef8", py: 5 }}>
+    <Box sx={{ background: "#E5F6DF", py: 5 }}>
       <Container maxWidth="lg">
         <Grid container spacing={4}>
           <Grid item xs={12} sx={{ textAlign: "center" }}>
@@ -51,8 +51,12 @@ const LandingPageWeOffer = () => {
               sx={{
                 fontWeight: "bold",
                 mb: 2,
-                color: "#319b88", // Primary color
+                color: "#319b88", // Teal
                 textTransform: "uppercase",
+                transition: "transform 0.3s",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
               }}
             >
               What We Offer
@@ -89,25 +93,25 @@ const LandingPageWeOffer = () => {
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <Grid container spacing={4}>
+            <Grid container spacing={2}>
               {weOffer.map((item, index) => (
-                <Grid item xs={12} sm={6} md={3} key={index}>
+                <Grid item xs={12} sm={6} md={4} key={index}>
                   <Card
                     sx={{
                       height: "100%",
                       borderRadius: "16px",
                       boxShadow: "0 4px 20px rgba(0, 0, 0, 0.1)",
-                      transition: "transform 0.3s, box-shadow 0.3s",
+                      transition: "0.3s",
                       "&:hover": {
-                        transform: "translateY(-5px)",
                         boxShadow: "0 8px 30px rgba(0, 0, 0, 0.2)",
+                        transform: "translateY(-5px)",
                       },
                     }}
                   >
                     <CardContent sx={{ textAlign: "center" }}>
                       <Box
                         sx={{
-                          backgroundColor: "#fc4a1a", // Secondary color
+                          backgroundColor: "#319b88", // Teal
                           width: "70px",
                           height: "70px",
                           borderRadius: "50%",
@@ -127,6 +131,7 @@ const LandingPageWeOffer = () => {
                           mb: 1.5,
                           fontWeight: "bold",
                           fontSize: "1.2rem",
+                          color: "#fc4a1a", // Orange
                         }}
                       >
                         {item.head}
@@ -146,12 +151,15 @@ const LandingPageWeOffer = () => {
                         size="small"
                         sx={{
                           fontWeight: "bold",
-                          color: "#319b88", // Primary color
+                          color: "#319b88", // Teal
                           backgroundColor: "white",
                           borderRadius: "8px",
                           padding: "8px 16px",
+                          border: `2px solid #319b88`, // Teal border
+                          transition: "background-color 0.3s, color 0.3s",
                           "&:hover": {
-                            backgroundColor: "#f1f1f1",
+                            backgroundColor: "#fc4a1a", // Orange on hover
+                            color: "white", // White text on hover
                           },
                         }}
                       >

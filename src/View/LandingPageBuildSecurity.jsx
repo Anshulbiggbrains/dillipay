@@ -2,93 +2,81 @@ import React from "react";
 import { Container } from "@mui/system";
 import { Box, Grid } from "@mui/material";
 import { getEnv } from "../theme/setThemeColor";
+import { keyframes } from "@emotion/react";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 const LandingPageBuildSecurity = () => {
   return (
-    <Grid xs={12} className="builSecurity_bg">
+    <Grid
+      container
+      xs={12}
+      className="builSecurity_bg"
+      sx={{ backgroundColor: "#f4f4f4", p: 4 }}
+    >
       <Container maxWidth="lg">
-        <div className="landing-bg_main_font" style={{ textAlign: "center" }}>
+        <Box
+          className="landing-bg_main_font"
+          sx={{
+            textAlign: "center",
+            fontSize: { lg: "3rem", sm: "2.5rem", xs: "2rem" },
+            fontWeight: "700",
+            color: "#fc4a1a",
+            mb: 2,
+            animation: `${fadeIn} 1s`,
+          }}
+        >
           Built With Security In Mind
-        </div>
-        <div className="landingPageSubHeading" style={{ textAlign: "center" }}>
+        </Box>
+        <Box
+          className="landingPageSubHeading"
+          sx={{
+            textAlign: "center",
+            fontSize: { lg: "1.5rem", sm: "1.2rem", xs: "1rem" },
+            mb: 4,
+            color: "#333",
+            animation: `${fadeIn} 1s`,
+          }}
+        >
           We provide services that are safe, secure, and compliant.
-        </div>
+        </Box>
 
-        <Grid container xs={12} sx={{ mt: 5 }}>
-          <Grid md={12}>
-            <Box
-              component="div"
-              sx={{
-                fontSize: { lg: "7rem", md: "7 rem", sm: "3rem", xs: "3rem" },
-                fontWeight: "700",
-                display: "flex",
-                justifyContent: "left",
-                mt: { lg: 0, md: 0, sm: 10, xs: 10 },
-                mb: { lg: 0, md: 0, sm: 3, xs: 3 },
-              }}
-            >
-              <span style={{ color: "#d35400" }}>01</span>
-              <div
-                style={{
-                  display: "inline",
-                }}
-              >
-                <span className="landing-bg_main_font">Safe</span>
-              </div>
-            </Box>
-            <Box
-              sx={{
-                textAlign: "justify",
-                display: "flex",
-                marginLeft: {
-                  lg: "8rem",
-                  md: "8rem",
-                  sm: "0rem",
-                  xs: "0rem",
-                },
-                width: {
-                  lg: "40%",
-                  md: "40%",
-                  sm: "100%",
-                  xs: "100%",
-                },
-                marginTop: "-40px",
-              }}
-            >
-              <span className="landing-bg_para">
-                We ensure you get a good night’s sleep with your money staying
-                with large and highly stable banks in India.
-              </span>
-            </Box>
-          </Grid>
-          <Grid md={12}>
-            <Box
-              component="div"
-              sx={{
-                fontSize: { lg: "7rem", md: "7 rem", sm: "3rem", xs: "3rem" },
-                fontWeight: "700",
-                display: "flex",
-                flexDirection: "column",
-                mt: { lg: 0, md: 0, sm: 10, xs: 10 },
-                mb: { lg: 0, md: 0, sm: 3, xs: 3 },
-                alignItems: "flex-end",
-              }}
-            >
-              <div
-                style={{
-                  display: "inline",
-                }}
-              >
-                <span className="landing-bg_main_font">Secure </span>
-                <span style={{ color: "#d35400" }}> 02</span>
-              </div>
+        <Grid container spacing={4}>
+          {["Safe", "Secure", "Compliant"].map((item, index) => (
+            <Grid item md={12} key={index} sx={{ animation: `${fadeIn} 1s` }}>
               <Box
                 component="div"
                 sx={{
-                  textAlign: " !important",
+                  fontSize: {
+                    lg: "4rem",
+                    md: "3rem",
+                    sm: "2.5rem",
+                    xs: "2rem",
+                  },
+                  fontWeight: "700",
                   display: "flex",
-
-                  marginRight: {
+                  justifyContent: index % 2 === 0 ? "left" : "flex-end",
+                  alignItems: "center",
+                  mb: 2,
+                }}
+              >
+                <span style={{ color: "#fc4a1a", marginRight: "10px" }}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="landing-bg_main_font">{item}</span>
+              </Box>
+              <Box
+                sx={{
+                  textAlign: "justify",
+                  display: "flex",
+                  marginLeft: {
                     lg: "8rem",
                     md: "8rem",
                     sm: "0rem",
@@ -100,75 +88,19 @@ const LandingPageBuildSecurity = () => {
                     sm: "100%",
                     xs: "100%",
                   },
-                  marginTop: {
-                    lg: "-40px",
-                    md: "-40px",
-                    sm: "-25px",
-                    xs: "-25px",
-                  },
                 }}
               >
-                <span
-                  className="landing-bg_para"
-                  style={{ textAlign: "right", marginRight: "15px" }}
-                >
-                  Enjoy secure access to your account with 2-factor
-                  authentication and TLS/SSL encryption of your data.
+                <span className="landing-bg_para" style={{ color: "#555" }}>
+                  {index === 0 &&
+                    "We ensure you get a good night’s sleep with your money staying with large and highly stable banks in India."}
+                  {index === 1 &&
+                    "Enjoy secure access to your account with 2-factor authentication and TLS/SSL encryption of your data."}
+                  {index === 2 &&
+                    `${getEnv()} complies with the same set of strict security standards as traditional banks in India follow.`}
                 </span>
               </Box>
-              {/* <div className="landing-bg_para">
-                We ensure you get a good night’s sleep with your money staying
-                with large and highly stable banks in India.
-              </div> */}
-            </Box>
-          </Grid>
-          <Grid md={12}>
-            <Box
-              component="div"
-              sx={{
-                fontSize: { lg: "7rem", md: "7 rem", sm: "3rem", xs: "3rem" },
-                fontWeight: "700",
-                display: "flex",
-                mt: { lg: 0, md: 0, sm: 10, xs: 10 },
-                mb: { lg: 0, md: 0, sm: 3, xs: 3 },
-                justifyContent: "left",
-              }}
-            >
-              <span style={{ color: "#d35400", marginRight: "10px" }}>03</span>
-              <div
-                style={{
-                  display: "inline",
-                  color: "#851414 !important",
-                }}
-              >
-                <span className="landing-bg_main_font">Compliant</span>
-              </div>
-            </Box>
-            <Box
-              sx={{
-                textAlign: "left",
-                display: "flex",
-                marginLeft: {
-                  lg: "8rem",
-                  md: "8rem",
-                  sm: "0rem",
-                  xs: "0rem",
-                },
-                width: {
-                  lg: "40%",
-                  md: "40%",
-                  sm: "100%",
-                  xs: "100%",
-                },
-                marginTop: "-33px",
-              }}
-            >
-              <span className="landing-bg_para" style={{ marginLeft: "15px" }}>
-                {getEnv()} complies with the same set of strict security
-                standards as traditional banks in India follow.
-              </span>
-            </Box>
-          </Grid>
+            </Grid>
+          ))}
         </Grid>
       </Container>
     </Grid>
