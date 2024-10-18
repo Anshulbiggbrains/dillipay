@@ -300,7 +300,7 @@ body {
 }
 .pageHead {
   align-items: center;
-  color: #1d1d1d;
+  color: #000;
   font-size: 4rem;
   font-weight: 900;
   letter-spacing: 0.05em;
@@ -404,12 +404,13 @@ body {
 .builSecurity_bg {
   background-image: url(../assets/svg/wave.svg);
   // height: 70vh;
-  background: linear-gradient(to right, #4b70a0, #e68d60);
+  // background: linear-gradient(to right, #4b70a0, #e68d60);
   width: 100%;
   background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
   padding-bottom: 50px;
+  // background: #0D6E06;
 }
 
 //testimonial
@@ -639,6 +640,7 @@ body {
   background-position: left;
   background-repeat: no-repeat;
   background-size: 100%;
+  // background: #0D6E05;
 }
 .servicePageBg1 {
   padding: 30px;
