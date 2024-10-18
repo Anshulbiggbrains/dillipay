@@ -146,7 +146,7 @@ export const getFirmContact = () => {
 };
 export const getFirmEmail = () => {
   if (process.env.REACT_APP_TITLE === "DilliPay") {
-    return `Support@dillipay.com`;
+    return `support@dillipay.com`;
   }
 };
 
