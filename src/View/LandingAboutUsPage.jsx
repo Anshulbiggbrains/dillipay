@@ -24,7 +24,9 @@ import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
 import LockClockOutlinedIcon from "@mui/icons-material/LockClockOutlined";
 import AccountBalanceOutlinedIcon from "@mui/icons-material/AccountBalanceOutlined";
 import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
-
+import SecurityIcon from "@mui/icons-material/Security";
+import ShutterSpeedIcon from "@mui/icons-material/ShutterSpeed";
+import IntegrationInstructionsIcon from "@mui/icons-material/IntegrationInstructions";
 const mWhyChooseUs = [
   {
     title: "User-friendly platorm",
@@ -550,7 +552,7 @@ const LandingAboutUsPage = () => {
                               alignItems: "flex-end",
                             }}
                           >
-                            <EmojiObjectsIcon
+                            <SecurityIcon
                               sx={{
                                 fontSize: "50px",
                                 color: "#1b5e20",
@@ -655,7 +657,7 @@ const LandingAboutUsPage = () => {
                               alignItems: "flex-start",
                             }}
                           >
-                            <EmojiObjectsIcon
+                            <IntegrationInstructionsIcon
                               sx={{
                                 fontSize: "50px",
                                 color: "#1b5e20",
@@ -713,7 +715,7 @@ const LandingAboutUsPage = () => {
                               alignItems: "flex-start",
                             }}
                           >
-                            <EmojiObjectsIcon
+                            <ShutterSpeedIcon
                               sx={{
                                 fontSize: "50px",
                                 color: "#1b5e20",
