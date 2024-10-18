@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { getEnv, secondaryColor } from "../theme/setThemeColor";
 import { useState } from "react";
 import LaunchIcon from "@mui/icons-material/Launch";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 const LandingPageIntro = () => {
   const navigate = useNavigate();
   const [env, setEnv] = useState(getEnv());
@@ -21,7 +21,6 @@ const LandingPageIntro = () => {
         backgroundSize: { md: "cover", xs: "contain" },
         height: "max-content",
       }}
-      
     >
       <Container maxWidth="xl">
         <Grid container xs={12} sx={{ px: { md: 8, sm: 1 } }}>
@@ -29,12 +28,16 @@ const LandingPageIntro = () => {
             <Box container sx={{ mt: 25 }}>
               <div className="lineUp">
                 <div
-                  className="landing-bg_main_font"
+                  // className="landing-bg_main_font"
                   style={{ textAlign: env === "MoneyOddr" ? "center" : "left" }}
                 >
-                 Embark on a Journey with 
+                  <h1>
+                    Fast, Secure, and <br />
+                    <span style={{ color: "#319B88" }}>effortless</span>{" "}
+                    payment.
+                  </h1>
                 </div>
-                <div className="landing-bg_biggpay_font">
+                {/* <div className="landing-bg_biggpay_font">
                   {process.env.REACT_APP_TITLE === "MoneyOddr" ? (
                     <>
                       <span className="header_money_text"> Money</span>
@@ -50,20 +53,17 @@ const LandingPageIntro = () => {
                     </>
                   ) : (
                     <div
-                 
-                    style={{
-                      color: "#FE0000",
-                      // fontStyle: "italic",
-                      marginLeft: "9px",
-                      fontSize: "2.5rem",
-                     
-                    }}
-                  >
-                   { process.env.REACT_APP_TITLE}
+                      style={{
+                        color: "#FE0000",
+                        // fontStyle: "italic",
+                        marginLeft: "9px",
+                        fontSize: "2.5rem",
+                      }}
+                    >
+                      {process.env.REACT_APP_TITLE}
                     </div>
-
                   )}
-                </div>
+                </div> */}
               </div>
               <div className="lineUpDelay">
                 {process.env.REACT_APP_TITLE === "MoneyOddr" ? (
@@ -87,7 +87,8 @@ const LandingPageIntro = () => {
                   </div>
                 ) : (
                   <div className="landing_intro">
-                   Empowering Seamless Transactions for Individuals, Entrepreneurs, and Enterprises
+                    <b> DilliPay </b> is designed to simplify and secure online
+                    transactions for businesses and individuals.
                   </div>
                 )}
 
@@ -162,7 +163,7 @@ const LandingPageIntro = () => {
                       navigate("/login");
                     }}
                   >
-                    Getting Started  <ArrowForwardIcon sx={{ ml: 1 }} />
+                    Getting Started <ArrowForwardIcon sx={{ ml: 1 }} />
                   </PrimaryButton>
                   {/* <SecondaryButton
                     variant="contained"
@@ -179,7 +180,6 @@ const LandingPageIntro = () => {
                   </SecondaryButton> */}
                 </Box>
               </div>
-           
             </Box>
           </Grid>
           {env !== "MoneyOddr" && (

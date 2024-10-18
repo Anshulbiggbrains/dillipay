@@ -63,21 +63,21 @@ body {
 }
 // navbar
 .navLinks {
-  color: #fff !important;
+  color: #000 !important;
   // background: linear-gradient(to right, #7fb4f9, #ee5f5f);
   font-family: "Ubuntu", sans-serif !important;
   transition: color 0.3s ease;
 }
 
 .navLinks:focus {
-  color: #008cff !important;
+  color: #319b88 !important;
 }
 .navLinks:hover {
-  color: #008cff !important;
+  color: #015e4d !important;
 }
 .navitems {
   color: black !important;
-  background: linear-gradient(to right, #7fb4f9, #ee5f5f);
+  // background: linear-gradient(to right, #7fb4f9, #ee5f5f);
   font-weight: 400 !important;
   position: relative;
   border-bottom: $white-color;
@@ -282,10 +282,10 @@ body {
 }
 
 .landing-bg1 {
-  background: linear-gradient(to right, #7fb4f9, #ee5f5f);
+  // background: linear-gradient(to right, #7fb4f9, #ee5f5f);
 }
 .landing-bg {
-  background: linear-gradient(to right, #7fb4f9, #ee5f5f);
+  // background: linear-gradient(to right, #7fb4f9, #ee5f5f);
   // background-image: url(../assets/landing-page-assets/landingBg.png);
   height: 95vh;
   width: 100%;
@@ -310,7 +310,7 @@ body {
 .landing_intro {
   align-items: center;
   // color: #1d1d1d;
-  color: #fff;
+  color: #808080;
   font-size: 1.6rem;
   font-weight: 500;
   text-align: left;
@@ -388,7 +388,7 @@ body {
   // background-image: url(../assets/landing-page-assets/whoWeBg.png);
   // height: 70vh;
   width: 100%;
-  background: linear-gradient(to right, #4b70a0, #b54a4a);
+  // background: linear-gradient(to right, #4b70a0, #b54a4a);
   background-position: left;
   background-repeat: no-repeat;
   background-size: 500;
@@ -686,7 +686,7 @@ body {
   padding: 2rem;
   width: "100%";
   height: auto;
-  background: linear-gradient(to left, rgb(158, 192, 255), #ff8eae);
+  // background: linear-gradient(to left, rgb(158, 192, 255), #ff8eae);
 }
 .footer-head-text {
   color: $off-white;
@@ -767,7 +767,7 @@ body {
 }
 
 .nav {
-  background: #4CAF50;
+  background: #4caf50;
   // background: #FF6B6B;
 }
 
@@ -2436,7 +2436,7 @@ div.second {
 .icon-box::before {
   content: "";
   position: absolute;
-  background: #FFC8C3;
+  background: #ffc8c3;
   right: -60px;
   top: -40px;
   width: 100px;
@@ -2467,8 +2467,6 @@ div.second {
   margin-top: 0.7rem !important;
   line-height: 28px;
   margin-bottom: 0;
-  
-  
 }
 .icon-box:hover .box-para {
   color: #fff;

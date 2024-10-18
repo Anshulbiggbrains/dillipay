@@ -26,7 +26,7 @@ const theme2 = {
 };
 
 const theme = {
-  background: "linear-gradient(to right, #7fb4f9, #ee5f5f)",
+  background: "#fff",
   boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px",
   color: "#000",
 };
@@ -110,7 +110,7 @@ export default function Navbar(props) {
           <Toolbar
             sx={{
               justifyContent: "space-between", // Adjusted to space-between for logo and button positioning
-              background: "linear-gradient(to right, #7fb4f9, #ee5f5f)",
+              // background: "linear-gradient(to right, #7fb4f9, #ee5f5f)",
             }}
           >
             {/* Logo on the left */}
@@ -122,6 +122,7 @@ export default function Navbar(props) {
               sx={{
                 display: { xs: "none", md: "flex" },
                 fontFamily: "monospace",
+
                 fontWeight: 700,
                 letterSpacing: ".3rem",
                 color: "inherit",
@@ -219,7 +220,7 @@ export default function Navbar(props) {
             >
               <Button
                 sx={{
-                  background: "linear-gradient(to right, #7fb4f9, #ee5f5f)",
+                  background: "#319B88",
                   color: "#fff",
                   borderRadius: "25px",
                   padding: "10px 20px",
