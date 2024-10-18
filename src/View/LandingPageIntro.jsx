@@ -33,7 +33,7 @@ const LandingPageIntro = () => {
                 >
                   <h1>
                     Fast, Secure, and <br />
-                    <span style={{ color: "#319B88" }}>effortless</span>{" "}
+                    <span style={{ color: "#319B88" }}>Effortless</span>{" "}
                     payment.
                   </h1>
                 </div>
