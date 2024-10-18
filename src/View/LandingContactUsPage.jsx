@@ -70,7 +70,7 @@ const LandingContactUsPage = () => {
       <Grid container>
         <Container maxWidth="lg">
           {envValue !== "MoneyOddr" && (
-            <Grid container spacing={3} sx={{ mt: { lg: 18, md: 18, sm: 18, xs: 30 } }}>
+            <Grid container spacing={3} sx={{ mt: { lg: 10, md: 18, sm: 18, xs: 30 } }}>
               <Grid item lg={7} md={7} sm={12} xs={12}>
                 <Box className="landingPageHeadings">Reach out to us!</Box>
                 <Box
