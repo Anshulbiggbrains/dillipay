@@ -30,15 +30,15 @@ const LandingServicesPage = () => {
       <Grid xs={12} sm={6} className="servicePageBg1">
         <Box
           component="div"
-          className="pageHead"
+          className="pageHead1"
           sx={{
             textAlign: "center",
             marginTop: "-3px",
           }}
         >
-          {/* Our Services */}
+          Our Services
         </Box>
-        {/* {envName === "MoneyOddr" ? (
+        {envName === "MoneyOddr" ? (
           <>
             <div className="landingPageSubHeading px-5">
               Unlock new possibilities for your business and boost your earnings
@@ -55,7 +55,7 @@ const LandingServicesPage = () => {
               We have exciting services for you on our application
             </div>
           </>
-        )} */}
+        )}
       </Grid>
       {/* <Container maxWidth="lg" className="sectionBreake" sx={{ pb: 10 }}> */}
       <Container maxWidth="lg" sx={{ pb: 10, mt: 10 }}>
