@@ -19,7 +19,7 @@ const LandingPageIntro = () => {
       className="landing-bg"
       id="landing-intro"
       sx={{
-        backgroundColor: "#319B88",
+        backgroundColor: "#84b067",
         backgroundSize: { md: "cover", xs: "contain" },
         color: "#fff",
         height: "100vh",
