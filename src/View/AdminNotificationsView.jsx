@@ -22,7 +22,7 @@ const AdminNotificationsView = () => {
 
   const columns = [
     {
-      name: "id",
+      name: "Id",
       selector: (row) => row.id,
     },
     {
@@ -38,7 +38,7 @@ const AdminNotificationsView = () => {
       selector: (row) => row.notification_id,
     },
     {
-      name: "user Id",
+      name: "User Id",
       selector: (row) => (
         <div className="blue-highlight-txt" style={{ textAlign: "left" }}>
           {row.user_id}

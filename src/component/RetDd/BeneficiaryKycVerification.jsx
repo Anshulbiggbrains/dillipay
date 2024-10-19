@@ -10,7 +10,7 @@ import {
 import React from "react";
 // import { whiteColor } from "../../theme/setThemeColor";
 // import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
-import Loader from "../loading-screen/Loader"; 
+import Loader from "../loading-screen/Loader";
 import ShowDocsModal from "../../modals/ShowDocsModal";
 import ModalHeader from "../../modals/ModalHeader";
 import ModalFooter from "../../modals/ModalFooter";
