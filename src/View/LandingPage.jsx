@@ -56,7 +56,8 @@ const LandingPage = () => {
         <meta name="description" content="DilliPay" />
         <meta name="keywords" content="DilliPay" />
       </Helmet>
-      <div className="app-content">
+      <div className="app-content
+      ">
         <LandingPageIntro />
         <LandingPageWhoWeAre />
         <LandingPageWeOffer />

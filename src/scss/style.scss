@@ -63,21 +63,21 @@ body {
 }
 // navbar
 .navLinks {
-  color: #fff !important;
+  color: #000 !important;
   // background: linear-gradient(to right, #7fb4f9, #ee5f5f);
   font-family: "Ubuntu", sans-serif !important;
   transition: color 0.3s ease;
 }
 
 .navLinks:focus {
-  color: #008cff !important;
+  color: #319b88 !important;
 }
 .navLinks:hover {
-  color: #008cff !important;
+  color: #015e4d !important;
 }
 .navitems {
   color: black !important;
-  background: linear-gradient(to right, #7fb4f9, #ee5f5f);
+  // background: linear-gradient(to right, #7fb4f9, #ee5f5f);
   font-weight: 400 !important;
   position: relative;
   border-bottom: $white-color;
@@ -269,7 +269,7 @@ body {
 }
 .aboutUs {
   // background: #007bff;
-  background: linear-gradient(to right, #718eb4, #c96767);
+  background: #d1edd4;
 }
 
 .drawer-bg {
@@ -282,10 +282,10 @@ body {
 }
 
 .landing-bg1 {
-  background: linear-gradient(to right, #7fb4f9, #ee5f5f);
+  // background: linear-gradient(to right, #7fb4f9, #ee5f5f);
 }
 .landing-bg {
-  background: linear-gradient(to right, #7fb4f9, #ee5f5f);
+  // background: linear-gradient(to right, #7fb4f9, #ee5f5f);
   // background-image: url(../assets/landing-page-assets/landingBg.png);
   height: 95vh;
   width: 100%;
@@ -300,7 +300,16 @@ body {
 }
 .pageHead {
   align-items: center;
-  color: #1d1d1d;
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-align: left;
+  font-family: "poppins" !important;
+}
+.pageHead1 {
+  align-items: center;
+  color: #000;
   font-size: 4rem;
   font-weight: 900;
   letter-spacing: 0.05em;
@@ -310,7 +319,7 @@ body {
 .landing_intro {
   align-items: center;
   // color: #1d1d1d;
-  color: #fff;
+  color: #808080;
   font-size: 1.6rem;
   font-weight: 500;
   text-align: left;
@@ -319,7 +328,7 @@ body {
 }
 .landing-bg_main_font {
   align-items: center;
-  color: #004990;
+  color: #05713f;
   font-size: 3rem;
   font-weight: 700;
   // letter-spacing: 0.01em;
@@ -339,7 +348,7 @@ body {
   align-items: center;
   color: #1d1d1d;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.05em;
   text-align: left;
   margin-top: 0.8rem;
@@ -358,7 +367,7 @@ body {
 .landingPageSubHeading {
   align-items: center;
   // color: $primary-light;
-  color: #fff;
+  color: #000;
   flex: none;
   flex-grow: 0;
   font-family: Poppins;
@@ -370,7 +379,7 @@ body {
   text-align: center;
 }
 .landingPageHeadings {
-  color: #0a0433;
+  color: #319b88;
   flex: none;
   flex-grow: 0;
   font-family: "poppins" !important;
@@ -388,7 +397,7 @@ body {
   // background-image: url(../assets/landing-page-assets/whoWeBg.png);
   // height: 70vh;
   width: 100%;
-  background: linear-gradient(to right, #4b70a0, #b54a4a);
+  // background: linear-gradient(to right, #4b70a0, #b54a4a);
   background-position: left;
   background-repeat: no-repeat;
   background-size: 500;
@@ -402,14 +411,16 @@ body {
 }
 //build security in mind
 .builSecurity_bg {
-  background-image: url(../assets/svg/wave.svg);
+  // background-image: url(../assets/svg/wave.svg);
   // height: 70vh;
-  background: linear-gradient(to right, #4b70a0, #e68d60);
+  // background: linear-gradient(to right, #4b70a0, #e68d60);
   width: 100%;
   background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
+
+  background: #d1edd4;
 }
 
 //testimonial
@@ -639,14 +650,15 @@ body {
   background-position: left;
   background-repeat: no-repeat;
   background-size: 100%;
+  // background: #0D6E05;
 }
 .servicePageBg1 {
   padding: 30px;
-  background-image: url(../assets/svg/ourservice.jpg);
+  // background-image: url(../assets/svg/ourservice.jpg);
   width: 100%;
   height: 300px;
   background-position: left;
-
+  background: #d1edd4;
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -684,10 +696,11 @@ body {
   padding: 2rem;
   width: "100%";
   height: auto;
-  background: linear-gradient(to left, rgb(158, 192, 255), #ff8eae);
+  background: #009688;
+  // background: linear-gradient(to left, rgb(158, 192, 255), #ff8eae);
 }
 .footer-head-text {
-  color: $off-white;
+  color: $black-color;
   font-size: 17px;
   font-weight: 700;
   margin-bottom: 30px;
@@ -697,16 +710,17 @@ body {
   font-family: "poppins";
   font-size: 1rem;
   text-align: left;
-  color: $white-color;
+  color: $black-color;
   font-weight: 400;
 }
 .text-style {
   text-align: left;
-  color: $white-color;
+  color: $black-color;
   font-size: 15px;
   margin-top: 5px;
   cursor: pointer;
 }
+
 .icon-bg {
   align-items: center;
   background-color: $white-color;
@@ -765,8 +779,8 @@ body {
 }
 
 .nav {
-  background: #4CAF50;
-  // background: #FF6B6B;
+  // background: #e02929bf;
+  background: #d53e3e;
 }
 
 //number input
@@ -2434,7 +2448,7 @@ div.second {
 .icon-box::before {
   content: "";
   position: absolute;
-  background: #FFC8C3;
+  background: #ffc8c3;
   right: -60px;
   top: -40px;
   width: 100px;
@@ -2465,8 +2479,6 @@ div.second {
   margin-top: 0.7rem !important;
   line-height: 28px;
   margin-bottom: 0;
-  
-  
 }
 .icon-box:hover .box-para {
   color: #fff;
@@ -3434,4 +3446,15 @@ ol > li {
   font-weight: bold;
   cursor: pointer;
   padding: 5px;
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

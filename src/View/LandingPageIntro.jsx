@@ -1,201 +1,128 @@
 import { Box, Container, Grid, IconButton } from "@mui/material";
 import React from "react";
-import { PrimaryButton, SecondaryButton } from "../theme/Theme";
+import { PrimaryButton } from "../theme/Theme";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
-// import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
 import { lp_illustration } from "../iconsImports";
 import { useNavigate } from "react-router-dom";
-import { getEnv, secondaryColor } from "../theme/setThemeColor";
+import { getEnv } from "../theme/setThemeColor";
 import { useState } from "react";
-import LaunchIcon from "@mui/icons-material/Launch";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+// import { motion } from "framer-motion";
+
 const LandingPageIntro = () => {
   const navigate = useNavigate();
   const [env, setEnv] = useState(getEnv());
+
   return (
     <Box
       className="landing-bg"
       id="landing-intro"
       sx={{
+        backgroundColor: "#84b067",
         backgroundSize: { md: "cover", xs: "contain" },
-        height: "max-content",
+        color: "#fff",
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
       }}
-      
     >
       <Container maxWidth="xl">
-        <Grid container xs={12} sx={{ px: { md: 8, sm: 1 } }}>
-          <Grid md={env === "DilliPay" || env === "PaisaKart" ? 6 : 12} sm={12}>
-            <Box container sx={{ mt: 25 }}>
-              <div className="lineUp">
-                <div
-                  className="landing-bg_main_font"
-                  style={{ textAlign: env === "MoneyOddr" ? "center" : "left" }}
-                >
-                 Embark on a Journey with 
-                </div>
-                <div className="landing-bg_biggpay_font">
-                  {process.env.REACT_APP_TITLE === "MoneyOddr" ? (
-                    <>
-                      <span className="header_money_text"> Money</span>
-                      <span
-                        className="header_oddr_text"
-                        style={{
-                          color: secondaryColor(),
-                          marginLeft: "10px",
-                        }}
-                      >
-                        OddR
-                      </span>
-                    </>
-                  ) : (
-                    <div
-                 
-                    style={{
-                      color: "#FE0000",
-                      // fontStyle: "italic",
-                      marginLeft: "9px",
-                      fontSize: "2.5rem",
-                     
-                    }}
-                  >
-                   { process.env.REACT_APP_TITLE}
+        <Grid
+          container
+          xs={12}
+          sx={{ px: { md: 8, sm: 1 }, alignItems: "center" }}
+        >
+          <Grid
+            item
+            md={env === "DilliPay" || env === "PaisaKart" ? 6 : 12}
+            sm={12}
+          >
+            <Box
+              sx={{
+                mt: { xs: 10, md: 25 },
+                textAlign: { xs: "center", md: "left" },
+              }}
+            >
+              <h1 style={{ fontSize: "3rem", fontWeight: 700 }}>
+                Fast, Secure, and <br />
+                <span style={{ color: "#fff" }}>Effortless</span> Payment.
+              </h1>
+
+              {/* <p style={{ fontSize: "1.5rem", marginTop: "1rem" }}>
+                Empower your business with secure and seamless transactions.
+                Join us to make payments simpler and faster.
+              </p> */}
+
+              {process.env.REACT_APP_TITLE === "MoneyOddr" ? (
+                <div className="mt-4">
+                  <p style={{ fontSize: "23px" }}>
+                    An Emerging Digital Payment Platform For
+                  </p>
+                  <section className="animation mt-3">
+                    <div className="animText">
+                      <div>INDIVIDUALS</div>
                     </div>
-
-                  )}
+                    <div className="animText">
+                      <div>BUSINESSMEN</div>
+                    </div>
+                    <div className="animText">
+                      <div>CORPORATIONS</div>
+                    </div>
+                  </section>
                 </div>
-              </div>
-              <div className="lineUpDelay">
-                {process.env.REACT_APP_TITLE === "MoneyOddr" ? (
-                  <div className="mt-4">
-                    <main className="landing_intro">
-                      <p style={{ fontSize: "23px" }}>
-                        An Emerging Digital Payment Platform For
-                      </p>
-                      <section className="animation mt-3">
-                        <div className="animText">
-                          <div>INDIVIDUALS</div>
-                        </div>
-                        <div className="animText">
-                          <div>BUSINESSMEN</div>
-                        </div>
-                        <div className="animText">
-                          <div>CORPORATIONS</div>
-                        </div>
-                      </section>
-                    </main>
-                  </div>
-                ) : (
-                  <div className="landing_intro">
-                   Empowering Seamless Transactions for Individuals, Entrepreneurs, and Enterprises
-                  </div>
-                )}
+              ) : (
+                <p style={{ fontSize: "1.3rem", marginTop: "2rem" }}>
+                  <b>{env === "DilliPay" ? "DilliPay" : "PaisaKart"}</b> is
+                  designed to simplify and secure online transactions for
+                  businesses and individuals.
+                </p>
+              )}
 
-                {/* {process.env.REACT_APP_TITLE !== "MoneyOddr" && (
-                  <Box
-                    component="div"
-                    sx={{
-                      textAlign: env === "MoneyOddr" ? "center" : "left",
-                      mt: 1,
-                      mb: 3,
-                    }}
-                  >
-                    <IconButton
-                      className="pulse-effect"
-                      aria-label="delete"
-                      sx={{
-                        backgroundColor: "#fff",
-                        marginRight: "0.5rem",
-                        color: "#073980",
-                      }}
-                    >
-                      <FacebookRoundedIcon />
-                    </IconButton>
-                    <IconButton
-                      className="pulse-effect"
-                      aria-label="delete"
-                      sx={{
-                        backgroundColor: "#fff",
-                        marginRight: "0.5rem",
-                        color: "#073980",
-                      }}
-                    >
-                      <InstagramIcon />
-                    </IconButton>
-                    <IconButton
-                      className="pulse-effect"
-                      aria-label="delete"
-                      sx={{
-                        backgroundColor: "#fff",
-                        marginRight: "0.5rem",
-                        color: "#073980",
-                      }}
-                    >
-                      <TwitterIcon />
-                    </IconButton>
-                  </Box>
-                )} */}
-                <Box
-                  component="div"
-                  sx={{
-                    display: "flex",
-                    flexDirection: {
-                      lg: "row",
-                      md: "row",
-                      sm: "row",
-                      xs: "column",
-                    },
-                    mb: 2,
-                    mt: env === "MoneyOddr" ? 7 : 3,
-                    alignItems: env === "MoneyOddr" ? "center" : "left",
-                    justifyContent: env === "MoneyOddr" ? "center" : "left",
+              <Box
+                component="div"
+                sx={{
+                  display: "flex",
+                  flexDirection: {
+                    lg: "row",
+                    md: "row",
+                    sm: "row",
+                    xs: "column",
+                  },
+                  mt: 4,
+                  alignItems: env === "MoneyOddr" ? "center" : "left",
+                  justifyContent: env === "MoneyOddr" ? "center" : "left",
+                }}
+              >
+                <PrimaryButton
+                  variant="contained"
+                  size="small"
+                  sx={{ mr: { xs: 0, md: 2 }, mb: { md: 0, xs: 2 } }}
+                  onClick={() => {
+                    navigate("/login");
                   }}
                 >
-                  <PrimaryButton
-                    variant="contained"
-                    size="small"
-                    sx={{
-                      mr: { xs: env === "MoneyOddr" ? 0 : 2, md: 2 },
-                      mb: { md: 0, xs: 2 },
-                    }}
-                    onClick={() => {
-                      navigate("/login");
-                    }}
-                  >
-                    Getting Started  <ArrowForwardIcon sx={{ ml: 1 }} />
-                  </PrimaryButton>
-                  {/* <SecondaryButton
-                    variant="contained"
-                    size="large"
-                    className="button-red"
-                    href={
-                      env === "MoneyOddr"
-                        ? ""
-                        : "https://play.google.com/store/apps/details?id=com.paisaonmobile.cm.DilliPay"
-                    }
-                    target="_blank"
-                  >
-                    Download App
-                  </SecondaryButton> */}
-                </Box>
-              </div>
-           
+                  Get Started <ArrowForwardIcon sx={{ ml: 1 }} />
+                </PrimaryButton>
+              </Box>
             </Box>
           </Grid>
+
           {env !== "MoneyOddr" && (
             <Grid
+              item
               md={6}
               sm={12}
-              sx={{
-                display: { xs: "none", sm: "none", md: "block" },
-                mt: 20,
-              }}
+              sx={{ display: { xs: "none", sm: "none", md: "block" }, mt: 10 }}
             >
               <img
                 src={lp_illustration}
                 alt="illustration"
-                width="90%"
+                width="100%"
                 height="auto"
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.8 }}
                 style={{
                   backgroundColor: getEnv() === "PaisaKart" ? "#fff" : "",
                   borderRadius: getEnv() === "PaisaKart" ? "50%" : "",
@@ -204,6 +131,33 @@ const LandingPageIntro = () => {
             </Grid>
           )}
         </Grid>
+
+        {/* Social Media Links */}
+        {/* <Box
+          sx={{
+            position: "absolute",
+            bottom: 20,
+            left: { xs: "50%", md: "2rem" },
+            transform: { xs: "translateX(-50%)", md: "none" },
+            display: "flex",
+            gap: 2,
+          }}
+        >
+          <IconButton
+            href="https://twitter.com"
+            target="_blank"
+            sx={{ color: "#fff" }}
+          >
+            <TwitterIcon />
+          </IconButton>
+          <IconButton
+            href="https://instagram.com"
+            target="_blank"
+            sx={{ color: "#fff" }}
+          >
+            <InstagramIcon />
+          </IconButton>
+        </Box> */}
       </Container>
     </Box>
   );

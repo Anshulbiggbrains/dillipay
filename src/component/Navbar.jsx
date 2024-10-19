@@ -26,7 +26,7 @@ const theme2 = {
 };
 
 const theme = {
-  background: "linear-gradient(to right, #7fb4f9, #ee5f5f)",
+  background: "#fff",
   boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px",
   color: "#000",
 };
@@ -52,6 +52,7 @@ ElevationScroll.propTypes = {
 
 // Menu items
 const pagesLg = [
+  { navItems: "HOME", to: "/", sName: "homeSec" },
   { navItems: "ABOUT US", to: "/about-us", id: "about-us", sName: "aboutSec" },
   {
     navItems: "OUR SERVICES",
@@ -68,6 +69,7 @@ const pagesLg = [
 ];
 const loginPage = { navItems: "LOGIN/SIGN UP", to: "/login", sName: "" };
 const pagesSm = [
+  { navItems: "HOME", to: "/", sName: "homeSec" },
   { navItems: "ABOUT US", to: "/about-us", sName: "aboutSec" },
   { navItems: "OUR SERVICES", to: "/our-services", sName: "servicesSec" },
   { navItems: "CONTACT US", to: "/contact-us", sName: "contactSec" },
@@ -110,7 +112,7 @@ export default function Navbar(props) {
           <Toolbar
             sx={{
               justifyContent: "space-between", // Adjusted to space-between for logo and button positioning
-              background: "linear-gradient(to right, #7fb4f9, #ee5f5f)",
+              // background: "linear-gradient(to right, #7fb4f9, #ee5f5f)",
             }}
           >
             {/* Logo on the left */}
@@ -122,6 +124,7 @@ export default function Navbar(props) {
               sx={{
                 display: { xs: "none", md: "flex" },
                 fontFamily: "monospace",
+
                 fontWeight: 700,
                 letterSpacing: ".3rem",
                 color: "inherit",
@@ -164,6 +167,7 @@ export default function Navbar(props) {
                 display: { xs: "none", md: "flex" },
                 justifyContent: "center",
                 alignItems: "center",
+                gap: 4,
               }}
             >
               {pagesLg.map((item) => (
@@ -219,7 +223,7 @@ export default function Navbar(props) {
             >
               <Button
                 sx={{
-                  background: "linear-gradient(to right, #7fb4f9, #ee5f5f)",
+                  background: "#319B88",
                   color: "#fff",
                   borderRadius: "25px",
                   padding: "10px 20px",
@@ -228,6 +232,7 @@ export default function Navbar(props) {
                   boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
                   transition: "transform 0.3s, box-shadow 0.3s",
                   "&:hover": {
+                    background: "#319B88",
                     transform: "scale(1.05)",
                     boxShadow: "0 6px 20px rgba(0, 0, 0, 0.3)",
                   },
@@ -269,7 +274,11 @@ export default function Navbar(props) {
                     key={item.to}
                     onClick={handleCloseNavMenu}
                     sx={{
-                      background: "linear-gradient(to right, #7fb4f9, #ee5f5f)",
+                      background: "#319B88",
+                      color: "#fff",
+                      "&:hover": {
+                        background: "#319B88",
+                      },
                     }}
                   >
                     <Link to={item.to} className="navLinks">
