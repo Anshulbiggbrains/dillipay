@@ -15,14 +15,20 @@ import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import ReceiptIcon from "@mui/icons-material/Receipt";
 import { useNavigate } from "react-router-dom";
 import { primaryColor } from "../theme/setThemeColor";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 
 const LandingPageWeOffer = () => {
   const navigate = useNavigate();
   const weOffer = [
     {
       icon: <MobileFriendlyIcon />,
-      head: "BILL PAYMENT AND RECHARGE",
-      para: "Get your prepaid mobile/tv/ott recharged instantly with earning opportunities on every transaction. Do best recharge with updated plans & offers.",
+      head: "BILL PAYMENT ",
+      para: " Pay your bills through various methods, including credit/debit cards, bank transfers, and digital wallets. Choose the option that works best for you.",
+    },
+    {
+      icon: <MobileFriendlyIcon />,
+      head: "Recharges ",
+      para: " Instantly recharge your prepaid mobile plans across all major carriers. Choose the amount and pay securely, ensuring you're always connected.",
     },
     {
       icon: <AccountBalanceIcon />,
@@ -38,6 +44,11 @@ const LandingPageWeOffer = () => {
       icon: <ReceiptIcon />,
       head: "UTILITY",
       para: "Instant update all your utility bill payments including electricity, water & gas bills, credit card bills, EMI installments, wallet top-ups.",
+    },
+    {
+      icon: <MonetizationOnIcon />,
+      head: "Money Transfer",
+      para: "Send money instantly to friends, family, or businesses locally or internationally. Enjoy real-time processing that ensures your funds reach their destination quickly.",
     },
   ];
 
@@ -104,7 +115,7 @@ const LandingPageWeOffer = () => {
                       transition: "0.3s",
                       "&:hover": {
                         boxShadow: "0 8px 30px rgba(0, 0, 0, 0.2)",
-                        transform: "translateY(-5px)",
+                        transform: "translateY(-10px)",
                       },
                     }}
                   >
