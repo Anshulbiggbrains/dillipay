@@ -219,21 +219,7 @@ export default function Navbar(props) {
               }}
             >
               <Button
-                sx={{
-                  background: "#319B88",
-                  color: "#fff",
-                  borderRadius: "25px",
-                  padding: "10px 20px",
-                  display: "flex",
-                  alignItems: "center",
-                  boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
-                  transition: "transform 0.3s, box-shadow 0.3s",
-                  "&:hover": {
-                    background: "#319B88",
-                    transform: "scale(1.05)",
-                    boxShadow: "0 6px 20px rgba(0, 0, 0, 0.3)",
-                  },
-                }}
+             className="button"
                 onClick={() => navigate("/login")}
               >
                 {loginPage.navItems}
