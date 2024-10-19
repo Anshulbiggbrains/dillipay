@@ -1,144 +1,85 @@
-/* eslint-disable array-callback-return */
-import { Box, FormControl, Grid, TextField, Typography ,Card, Button, Divider, Tooltip} from "@mui/material";
-import React, { useContext, useState, useEffect, useRef } from "react";
-import { postJsonData, get } from "../network/ApiController";
+import {
+  Box,
+  Button,
+  Card,
+  styled,
+  FormControl,
+  Grid,
+  InputAdornment,
+  Menu,
+  MenuItem,
+  Switch,
+  TextField,
+  Tooltip,
+  Typography,
+  Avatar,
+} from "@mui/material";
+import React from "react";
+import { get, postJsonData } from "../network/ApiController";
 import ApiEndpoints from "../network/ApiEndPoints";
-import { apiErrorToast, okSuccessToast } from "../utils/ToastUtil";
+import { useState } from "react";
+import { apiErrorToast } from "../utils/ToastUtil";
+import RepeatRechargeModal from "../modals/RepeatRechargeModal";
 import EnterMpinModal from "../modals/EnterMpinModal";
+import { useEffect } from "react";
 import SuccessRechargeModal from "../modals/SuccessRechargeModal";
-import Loader from "../component/loading-screen/Loader";
+import { useContext } from "react";
 import AuthContext from "../store/AuthContext";
-import BillPaymentModal from "../modals/BillPaymentModal";
-import OperatorSearch from "./OperatorSearch";
+import Loader from "../component/loading-screen/Loader";
+import { PATTERNS } from "../utils/ValidationUtil";
+import AllPlansBar from "./AllPlansBar";
+import { primaryColor, getEnv } from "../theme/setThemeColor";
+import { PROJECTS } from "../utils/constants";
 import CardComponent from "./CardComponent";
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 import CircleComponent from "./CircleComponent";
-import { faListSquares } from "@fortawesome/free-solid-svg-icons";
-import ReplyIcon from '@mui/icons-material/Reply';
-import BbpsCardComponent from "../component/BbpsCardComponent";
-import SearchIcon from '@mui/icons-material/Search';
-import { InputAdornment } from '@mui/material';
-import styled from "styled-components";
 import { back } from "../iconsImports";
-const InnerIcon = styled(Box)(({ theme }) => ({
 
-  // padding: theme.spacing(1),
-  width: '60px',
-  height: '60px',
-  display: 'flex',
-  borderRadius: '50%',
-  alignItems: 'center',
-  justifyContent: 'center',
-  boxShadow: 'rgba(0, 0, 0, 0.24) 0px 1px 4px',
-  // background: theme.palette.common.white,
-}));
-const ElectricityForm = ({ title, type,resetView,name,image}) => {
+const MobileRechargeForm = ({ type, resetView, title }) => {
   const authCtx = useContext(AuthContext);
-  const location = authCtx.location;
-  const [fetchRequest, setFetchRequest] = useState(false);
-  const [billPayRequest, setBillPayRequest] = useState(false);
-  const [modalVisible, setModalVisible] = useState(false);
-  const [operatorId, setOperatorId] = useState("");
+  const userLat = authCtx.location && authCtx.location.lat;
+  const userLong = authCtx.location && authCtx.location.long;
+  const [isMobV, setIsMobV] = useState(true);
+  const [isCustomerIdV, setIsCustomerIdV] = useState(true);
+  const [checked, setChecked] = useState(true);
+  const [request, setRequest] = useState(false);
+  const [infoFetched, setInfoFetched] = useState(false);
+  const [numberinfo, setNumberinfo] = useState();
+  const [operatorCode, setOperatorCode] = useState();
+  const [loading, setLoading] = useState(false);
+  const [mobile, setMobile] = useState("");
   const [opName, setOpName] = useState("");
+  const [amount, setAmount] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
+  const [operatorVal, setOperatorVal] = useState([]);
+  const [selectedOperator, setSelectedOperator] = useState([null]);
+  const [defaultIcon, setDefaultIcon] = useState();
+  const [operator, setOperator] = useState();
   const [successRecharge, setSuccessRechage] = useState([]);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [params, setParams] = useState([]);
-  const [changeFetchToPay, setChangeFetchToPay] = useState(false);
-  const [billDetails, setBillDetails] = useState();
-  const [paramsValue, setparamsValue] = useState({});
-  const [data, setData] = useState("");
-  const [visibleAmount, setVisibleAmount] = useState(false);
-  const [amountValue, setAmountValue] = useState("");
-  const [operatorList, setOperatorList] = useState([]);
-  const [operatorVal, setOperatorVal] = useState([]);
+  const [customerId, setCustomerId] = useState("");
   const [IsOptSelected, setIsOptSelected] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState(false); 
-  const [selectedCard, setSelectedCard] = useState(null); 
-  const [searchTerm, setSearchTerm] = useState("");
-  const [operatorIcon,setOperatorIcon] = useState()
-  const operatorRef = useRef();
+  const[data,setData]=useState()
+console.log("operator is ",operator)
+  const envName = getEnv();
 
-  const handleSubmit = (event) => {
-    event.preventDefault(); 
-    const data = {};
-    params.forEach((item, index) => {
-      if (item || item !== "") {
-        data["param" + (index + 1)] = document.getElementById(
-          "param" + (index + 1)
-        )?.value;
-      }
-    });
-    setData(data);
-  };
-
-  const fetchBill = () => {
-    const data = {
-      latitude: location.lat,
-      longitude: location.long,
-      operator: operatorId,
-    };
-    params.forEach((item, index) => {
-      if (item && item !== "") {
-        data["param" + (index + 1)] = document.getElementById(
-          "param" + (index + 1)
-        ).value;
-      }
-    });
-
-    if (!data.param1) {
-      apiErrorToast("All Fields are required");
-    } else {
-      postJsonData(
-        ApiEndpoints.RECH_FETCH_BILL,
-        data,
-        setFetchRequest,
-        (res) => {
-          setBillDetails(res.data.data);
-          okSuccessToast(
-            res.data.message.param1
-              ? res.data.message.param1[0]
-              : res.data.message
-          );
-          if (!res.data.message.param1) {
-            if (
-              res.data.message.toLowerCase() ===
-              "Bill Fetch Service Is Down Please Enter The Amount Manually".toLowerCase()
-            ) {
-              setVisibleAmount(true);
-              setChangeFetchToPay(true);
-              handleSubmit();
-            }
-          }
-        },
-        (err) => {
-          apiErrorToast(err);
-        }
-      );
-    }
-  };
-  const handleBack = () => {
-    resetView(false)
-    
-    // setShowSecondPage(0); // Set the state to 1 when the button is clicked
-};
-
-  const handleOperatorChange = (event) => {
-    const selectedOperator = operatorVal.find(
-      (item) => item.code === event.target.value
-    );
-    setOpName(selectedOperator ? selectedOperator.name : ""); 
-    setOperatorIcon(selectedOperator ? selectedOperator.img : "");
-  };
-
-  const getOperator = () => {
+  const getOperatorVal = () => {
     get(
       ApiEndpoints.GET_OPERATOR,
-      `sub_type=${type}`,
-      null,
+      `sub_type=${type === "mobile" ? title : "DTH"}`,
+      "",
       (res) => {
-        setOperatorList(res.data.data);
-        setOperatorVal(res.data.data);
-        const allParams = res.data.data.flatMap(op => [op.param1, op.param2, op.param3]).filter(Boolean);
-        setParams(allParams);
+        const opArray = res.data.data;
+        const op = opArray.map((item) => {
+          return {
+            code: item.code,
+            name: item.name,
+            img: item.img,
+          };
+        });
+        setOperatorVal(op);
       },
       (error) => {
         apiErrorToast(error);
@@ -146,148 +87,164 @@ const ElectricityForm = ({ title, type,resetView,name,image}) => {
     );
   };
 
-  useEffect(() => {
-    getOperator();
-  }, []);
-  const filteredOperators = operatorVal.filter((operator) =>
-    operator.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  const handleOpenVal = (operator) => {
-    setIsOptSelected(true);
-    setOperatorId(operator.code);
-    setSelectedCard(operator.code);
-    setOperatorIcon(operator.code)
-    setOpName(operator.name);
-    setParams([operator.param1, operator.param2, operator.param3]); 
+  const getNumberInfo = (number) => {
+    setInfoFetched(false);
+    postJsonData(
+      ApiEndpoints.GET_NUMBER_INFO,
+      {
+        number: number,
+        type: type === "mobile" ? "M" : "D",
+      },
+      setRequest,
+      (res) => {
+        if (res && res.data && res.data.info) {
+          const data = res.data.info;
+          const customNumInfo = data;
+          customNumInfo.customer_no = number;
+          setNumberinfo(customNumInfo);
+          setInfoFetched(true);
+          getOperatorVal();
+        } else {
+          setNumberinfo();
+        }
+      },
+      (error) => {
+        if (
+          error.response &&
+          (error.response.status === 403 || error.response.status === 404)
+        ) {
+          setInfoFetched(true);
+        } else {
+          apiErrorToast(error);
+        }
+      }
+    );
   };
-console.log("oppp",opName);
 
+  useEffect(() => {
+    getOperatorVal();
+    if (!numberinfo) {
+      setDefaultIcon("");
+    }
+  }, [numberinfo]);
+
+  useEffect(() => {
+    if (operatorVal && numberinfo) {
+      operatorVal.forEach((item) => {
+        if (item.code === numberinfo.operator) {
+          setDefaultIcon(item.img);
+        }
+      });
+    }
+    if (mobile === "" && type === "mobile") {
+      setDefaultIcon("");
+    }
+  }, [operatorVal, numberinfo]);
+
+  const handleSubmit = (event) => {
+    if (infoFetched) {
+      document.activeElement.blur();
+      event.preventDefault();
+      const form = event.currentTarget;
+      
+      // Determine the correct type based on title and type
+      let rechargeType;
+      if (type === "mobile") {
+        rechargeType = title === "Prepaid" ? "PREPAID" : "POSTPAID";
+      } else {
+        rechargeType = "DTH";
+      }
+
+      const number = (type === "mobile")
+      ? (title === "Prepaid" ? form.mobile.value : undefined)
+      : (type === "dth" ? customerId : undefined);
+    
+    const data = {
+      number,  // This will be assigned based on the conditions above
+      param1: title === "Postpaid" ? form.mobile.value : undefined,
+      operator: operatorCode ? operatorCode : (numberinfo && numberinfo.operator),
+      amount: form.amount.value,
+      type: rechargeType,
+      pf: "WEB",
+      latitude: userLat || undefined,
+      longitude: userLong || undefined,
+    };
+    
+
+      setData(data);
+      setModalVisible(true);
+    } else {
+      event.preventDefault();
+      getNumberInfo(customerId);
+    }
+  }
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClickMenu = (event) => {
+    getOperatorVal();
+    // setAnchorEl(event.currentTarget);
+  };
+  const handleCloseMenue = () => {
+    setAnchorEl(null);
+  };
+
+  const handleOperatorChange = (event) => {
+    // const selectedOperator = operatorVal.find(item => item.code === event.target.value);
+    setOperator(selectedOperator); 
+    setOpName(selectedOperator ? selectedOperator.name : "");
+     // Update the operator image
+  }
+
+
+     const handleOpenVal = (opt) => {
+     if (!IsOptSelected) {
+      setIsOptSelected(true)
+     } 
+     setOpName(opt.name)
+     setOperatorCode(opt.code)
+      // alert(`You clicked on: ${operatorVal}`);
+    };
+
+     console.log("deafault value ",operatorCode)
+     const handleBack = () => {
+      resetView(false);
+    };
   return (
-    <div className="position-relative" id="whole">
-    <Loader loading={fetchRequest} circleBlue />
    
-    {!IsOptSelected && (
-      <>
-   <div className="position-relative" id="whole">
-      {/* Existing loader and other components */}
-      <Loader loading={fetchRequest} circleBlue />
-
-      {/* Title and Back Button */}
-      <Grid container alignItems="center" justifyContent="space-between" sx={{ mb: 2 }}>
-      <Grid container justifyContent="space-between" alignItems="center" spacing={2}>
-        {/* Image and Title Section */}
-        <Grid item xs={12} sm="auto" sx={{ml:1}}>
-          <Box display="flex" alignItems="center">
-          <InnerIcon>
-        <img src={image} alt="Biller" style={{ width: 40, height: 40 }} />
-      </InnerIcon>
-            <Typography variant="h6" align="left" sx={{ ml: 1 }}>
-             {name}
-              {/* Dynamically render biller name */}
-            </Typography>
-          </Box>
-        </Grid>
-
-        {/* Search Bar */}
-        <Grid item xs={12} sm={6} sx={{mt:1}}>
-          <TextField
-            label="Search"
-            variant="outlined"
-            fullWidth
-            onChange={(e) => setSearchTerm(e.target.value)}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <SearchIcon />
-                </InputAdornment>
-              ),
-            }}
-            sx={{
-              '& .MuiOutlinedInput-root': {
-                borderRadius: '8px',
-                boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
-                backgroundColor: '#fff',
-              },
-              '& .MuiInputLabel-root': {
-                color: '#757575',
-              },
-              '& .MuiOutlinedInput-notchedOutline': {
-                borderColor: '#cccccc',
-              },
-              '&:hover .MuiOutlinedInput-notchedOutline': {
-                borderColor: '#999999',
-              },
-              '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
-                borderColor: '#3f51b5',
-              },
-            }}
-          />
-        </Grid>
-
-        {/* Back Button */}
-        {/* <Grid item xs={12} sm="auto">
-          <Button
-            variant="contained"
-            onClick={handleBack}
-            sx={{ ml: 2 }}
-          >
-            <ReplyIcon /> Back
-          </Button> */}
-        {/* </Grid> */}
-        <Grid
+    <div className="position-relative">
+         <Grid
                    
-                     item xs={12} sm="auto"
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-              mr:2,
-                  mt:1
-                    }}
+                   item xs={12} sm="auto"
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+          ml:1,
+                mt:1
+                  }}
+                >
+                  <Button
+                    size="small"
+                    id="verify-btn"
+                    className="button-props"
+                    onClick={handleBack}
                   >
-                    <Button
-                      size="small"
-                      id="verify-btn"
-                      className="button-props"
-                      onClick={handleBack}
-                    >
-                      <span style={{ marginRight: "5px" }}>Home</span>
-                      <img
-                        src={back}
-                        alt="back"
-                        style={{ width: "18px", height: "20px" }}
-                      />
-                    </Button>
-                    </Grid>
-      </Grid>
-          </Grid>
-
-      {/* Search Box */}
-      {/* <Grid container spacing={2} sx={{ mb: 2 }}>
-        <Grid item xs={12}>
-          <TextField
-            label="Search Operator"
-            variant="outlined"
-            fullWidth
-            size="small"
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </Grid>
-      </Grid> */}
-
-      {/* Display filtered operator list */}
-      <Grid container spacing={2}       sx={{
-          mt: 3,
-          maxHeight: "550px", // Adjust the max height as per your needs
-          overflowY: "auto", // Makes the data scrollable
-          border: "1px solid #ddd",
-          borderRadius: "8px",
-          padding: 2,
-        }}>
-        
-        {filteredOperators.length > 0 ? (
-          filteredOperators.map((operator, index) => (
+                    <span style={{ marginRight: "5px" }}>Home</span>
+                    <img
+                      src={back}
+                      alt="back"
+                      style={{ width: "18px", height: "20px" }}
+                    />
+                  </Button>
+                  </Grid>
+    <Loader loading={request} />
+    {!IsOptSelected && (
+      <Grid container spacing={2}>
+        {operatorVal &&
+          operatorVal.map((operator, index) => (
             <Grid item xs={6} sm={4} md={3} key={index}>
               <CardComponent
                 title={operator.name}
@@ -295,267 +252,267 @@ console.log("oppp",opName);
                 onClick={() => handleOpenVal(operator)}
               />
             </Grid>
-          ))
-        ) : (
-          <Grid item xs={12}>
-            <Typography>No data found</Typography>
-          </Grid>
-        )}
+          ))}
       </Grid>
-
-      {/* Existing functionality (rest of the component) */}
-    </div>
-     </>
     )}
-   {IsOptSelected && (
-  <Grid container spacing={2}>
-    {/* Left Section for Operator List */}
-    <Grid
-  item
-  lg={4}
-  xs={12}
-  sm={4}
-  sx={{
-    mt: 2,
-    height: "600px",
-    width: "600px",
-    overflowY: "auto", // Ensure scrollability
-    p: 2,
-  }}
->
-  {/* Search Box for Electricity Operators */}
-  <TextField
-    label="Search"
-    variant="outlined"
-    fullWidth
-    value={searchTerm}
-    onChange={(e) => setSearchTerm(e.target.value)} // Update search term on input change
-    InputProps={{
-      endAdornment: (
-        <InputAdornment position="end">
-          <SearchIcon />
-        </InputAdornment>
-      ),
-    }}
-    sx={{
-      '& .MuiOutlinedInput-root': {
-        borderRadius: '8px',
-        boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
-        backgroundColor: '#fff',
-      },
-      '& .MuiInputLabel-root': {
-        color: '#757575',
-      },
-      '& .MuiOutlinedInput-notchedOutline': {
-        borderColor: '#cccccc',
-      },
-      '&:hover .MuiOutlinedInput-notchedOutline': {
-        borderColor: '#999999',
-      },
-      '& .Mui-focused .MuiOutlinedInput-notchedOutline': {
-        borderColor: '#3f51b5',
-      },
-    }}
-  />
-
-  <Divider sx={{ my: 2, backgroundColor: "grey.500", height: 1.5 }} />
-
-  {/* Card Count */}
-  <Typography 
-    variant="caption" // Smaller variant for text size
-    sx={{ 
-      mt: -2,
-      justifyContent: "end",
-      display: 'flex', // Flex for alignment
-      alignItems: 'flex-start',
-    }} 
-    align="right"
-  >
-    {filteredOperators.length} {filteredOperators.length === 1 ? 'electricity ' : 'electricity '} found
-  </Typography>
-
-  {/* Scrollable Card List */}
-  <Box sx={{ overflowY: "auto", maxHeight: "480px" }}> 
-    {operatorVal &&
-      operatorVal
-        .filter((operator) => 
-          operator.name.toLowerCase().includes(searchTerm.toLowerCase())
-        ) // Filter operators based on the search term
-        .map((operator, index) => (
-          <CardComponent
-            key={index}
-            title={operator.name}
-            img={operator.code}
-            height="55px"
-            onClick={() => {
-              handleOpenVal(operator);
-            }}
-            isSelected={opName === operator.name}
-          />
-        ))
-    }
-  </Box>
-</Grid>
-
-
-    {/* Right Form Section */}
-    <Grid item lg={8} xs={12} sm={8} sx={{ mr: -6 }}>
   
-      <Box
-        sx={{
-          height: "100%",
-          p: 3,
-        }}
-      >
-          <Grid item xs={12} sm="auto" display="flex" justifyContent="flex-start" sx={{mb:3}}>
-  <Button
-    variant="contained"
-    onClick={handleBack}
-    sx={{ ml: 2 }} // Margin left for spacing
-  >
-    <ReplyIcon /> Home
-  </Button>
-</Grid>
+    {IsOptSelected && (
+      <Grid container spacing={2}>
+        <Grid item lg={4} xs={12} sm={3.8}>
+          {operatorVal &&
+            operatorVal.map((operator, index) => (
+              <CardComponent
+                title={operator.name}
+                setOpIcon={setOperatorCode}
+                
+                img={operator.code}
+                height="55px"
+                isSelected={opName === operator.name}
+                onClick={() => handleOpenVal(operator)
 
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "flex-start",
-            flexWrap: "wrap",
-            marginBottom: "16px",
-          }}
-        >
-          <CircleComponent img={operatorIcon} />
-          <Tooltip title={opName} arrow>
-  <Typography
-    sx={{
-      fontSize: { xs: "18px", sm: "20px", md: "24px" }, 
-      fontWeight: "bold",
-      ml: "15px", 
-      wordWrap: "break-word", 
-    }}
-  >
-    {opName.split(" ").length > 3 ? (
-      `${opName.split(" ").slice(0, 3).join(" ")}...`
-    ) : (
-      opName
-    )}
-  </Typography>
-</Tooltip>
 
-        </div>
-
-        <Box
-          component="form"
-          id="electricity"
-          validate="true"
-          autoComplete="off"
-          onSubmit={handleSubmit}
-          sx={{
-            "& .MuiTextField-root": { m: 1, width: "100%" },
-            overflowY: "auto",
-            maxHeight: "400px",
-          }}
-        >
-          <Grid container spacing={0.5}>
-            {params.map((item, i) => (
-              <Grid item xs={12} key={i}>
-                {item && item !== "" && (
-                  <FormControl
-                    sx={{
-                      width: { xs: "100%", sm: "80%", md: "80%", lg: "80%", xl: "80%" },
-                      mr: "19%",
-                    }}
-                  >
-                    <TextField
-                      label={item}
-                      id={"param" + (i + 1).toString()}
-                      size="small"
-                      sx={{
-                        width: "400px",
-                        "& .MuiInputBase-input": {
-                          fontSize: "12px",
-                          color: "black",
-                        },
-                        "& .MuiInputBase-input::placeholder": {
-                          fontSize: "12px",
-                          opacity: 1,
-                        },
-                      }}
-                      onChange={(e) => {
-                        setparamsValue({
-                          ...paramsValue,
-                          [e.currentTarget.id]: e.currentTarget?.value,
-                        });
-                      }}
-                      required
-                    />
-                  </FormControl>
-                )}
-              </Grid>
+                 
+                }
+              />
             ))}
-            <Grid item xs={12}>
-              <FormControl
+        </Grid>
+  
+        <Grid item lg={8} xs={12} sm={8.2}>
+          <Card sx={{ height: "100%", position: "relative" }}>
+            <Box sx={{ p: 3 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <CircleComponent img={operatorCode} /> 
+                  <Typography sx={{ fontSize: "24px", fontWeight: "bold", marginLeft: "16px"}}>
+                    {type === opName ? title : opName}
+                  </Typography>
+                </div>
+  
+                {type === "mobile" && (
+                  <div style={{ textAlign: "right" }}>
+                    <Typography sx={{ mr:4, fontSize:"25px", fontWeight: "bold" }}>
+                      {title }
+                    </Typography>
+                    {/* <Tooltip title={title === "Prepaid" ? "Postpaid" : "Prepaid"}>
+                      <Switch
+                        checked={checked}
+                        onChange={handleChange}
+                        inputProps={{ "aria-label": "controlled" }}
+                        sx={{
+                          "& .MuiSwitch-switchBase.Mui-checked": {
+                            color: primaryColor(),
+                          },
+                        }}
+                      />
+                    </Tooltip> */}
+                  </div>
+                )}
+              </div>
+  
+              {/* Form Section */}
+              <Box
+                component="form"
+                id="recharge"
+                validate
+                autoComplete="off"
+                onSubmit={handleSubmit}
                 sx={{
-                  width: { xs: "100%", sm: "80%", md: "80%", lg: "80%", xl: "80%" },
-                  mr: "19%",
+                  "& .MuiTextField-root": { m: 2 },
+                  objectFit: "contain",
+                  overflowY: "scroll",
                 }}
               >
-                <TextField
-                  label="Amount"
-                  id="amount"
-                  size="small"
-                  sx={{
-                    "& .MuiInputBase-input": {
-                      fontSize: "12px",
-                      color: "black",
-                    },
-                    "& .MuiInputBase-input::placeholder": {
-                      fontSize: "12px",
-                      opacity: 1,
-                    },
-                  }}
-                  value={amountValue}
-                  onChange={(e) => {
-                    setAmountValue(e.target.value);
-                  }}
-                  required
-                />
-              </FormControl>
-            </Grid>
-          </Grid>
-        </Box>
+              <Grid item xs={12}>
+  {type === "mobile" && (
+  <FormControl sx={{ width: "100%" }}>
+  <TextField
+    autoComplete="off"
+    label="Mobile Number"
+    id="mobile"
+    type="text" // Change to 'text' to allow for custom input validation
+    size="small"
+    error={!isMobV || (mobile.length === 10 && mobile.startsWith("0"))}
+    helperText={
+      !isMobV
+        ? "Enter valid Mobile"
+        : mobile.length === 10 && mobile.startsWith("0")
+        ? "Mobile number cannot start with 0"
+        : ""
+    }
+    InputProps={{
+      inputProps: { maxLength: 10 },
+    }}
+    value={mobile}
+    onChange={(e) => {
+      const value = e.target.value;
 
-        {/* Payment Modal */}
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <BillPaymentModal
-            changeFetchToPay={changeFetchToPay}
-            amountValue={amountValue}
-            fetchBill={fetchBill}
-            billDetails={billDetails}
-            setBillDetails={setBillDetails}
-            payRequest={billPayRequest}
-            setBillPayRequest={setBillPayRequest}
-            modalVisible={modalVisible}
-            setModalVisible={setModalVisible}
-            operatorId={operatorId}
-            operatorName={opName}
-            successRecharge={successRecharge}
-            setSuccessRechage={setSuccessRechage}
-            showSuccess={showSuccess}
-            setShowSuccess={setShowSuccess}
-            data={data}
-          />
-        </div>
-      </Box>
-    </Grid>
-  </Grid>
-)}
+      // Prevent typing '0' as the first character and more than 10 digits
+      if (value.length > 10 || (value.length === 1 && value.startsWith("0"))) {
+        return; // Do not update state if the condition is met
+      }
 
+      // Set initial state for validations
+      if (value === "") {
+        setIsMobV(true);
+        setMobile(value);
+        setInfoFetched(false);
+        setAmount("");
+        setNumberinfo("");
+        setOperator("");
+        return;
+      }
+
+      // Update validation state
+      const isValidLength = value.length === 10;
+      const isValidPattern = PATTERNS.MOBILE.test(value);
+      const startsWithZero = value.startsWith("0");
+
+      // Set the validation flag based on the conditions
+      setIsMobV(isValidPattern && !startsWithZero);
+
+      setMobile(value);
+
+      // Fetch number info only if it is a valid 10-digit number
+      if (isValidLength && isValidPattern && !startsWithZero) {
+        getNumberInfo(value);
+      } else {
+        setInfoFetched(false);
+        setAmount("");
+        setNumberinfo("");
+        setOperator("");
+      }
+    }}
+    required
+    disabled={request}
+  />
+</FormControl>
+
+  )}
+  {type === "dth" && (
+    <FormControl sx={{ width: "100%" }}>
+      <TextField
+        autoComplete="off"
+        label="Customer ID"
+        id="customer-id"
+        type="tel"
+        error={!isCustomerIdV}
+        helperText={!isCustomerIdV ? "Enter valid Customer Id" : ""}
+        size="small"
+        inputProps={{ maxLength: 20 }}
+        onChange={(e) => {
+          const value = e.target.value;
+          setCustomerId(value);
+          setIsCustomerIdV(PATTERNS.DTH.test(value));
+          if (value === "") {
+            setIsCustomerIdV(true);
+            setInfoFetched(false);
+            setAmount("");
+            setNumberinfo("");
+            setOperator("");
+          }
+        }}
+        required
+        InputProps={{
+          endAdornment:
+            infoFetched && envName !== PROJECTS.moneyoddr && (
+              <InputAdornment position="end">
+                <Button variant="text" onClick={() => getNumberInfo(customerId)}>
+                  get Info
+                </Button>
+              </InputAdornment>
+            ),
+        }}
+      />
+    </FormControl>
+  )}
+</Grid>
+
+  
+                <Grid item xs={12}>
+                  <FormControl sx={{ width: "100%" }}>
+                    <TextField
+                      autoComplete="off"
+                      label="Amount"
+                      id="amount"
+                      size="small"
+                      type="number"
+                      value={amount || ""}
+                      onChange={(e) => setAmount(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "+" || e.key === "-") {
+                          e.preventDefault();
+                        }
+                      }}
+                      InputProps={{
+                        inputProps: { max: 10000, min: 10 },
+                        endAdornment:
+                          infoFetched &&
+                          type === "mobile" && (
+                            <InputAdornment position="end">
+                              <AllPlansBar
+                                operator={operator && operator.op}
+                                onClick={(plan) => setAmount(plan?.plan)}
+                              />
+                            </InputAdornment>
+                          ),
+                      }}
+                      required
+                      disabled={request}
+                    />
+                  </FormControl>
+                </Grid>
+  
+                <Grid item xs={12}>
+                  <Button
+                    type="submit"
+                    form="recharge"
+                    className="btn-background"
+                    sx={{
+                      width: "95%",
+                      mt: 1,
+                    }}
+                    disabled={request}
+                  >
+                    <span>{infoFetched ? "Proceed to pay" : type === "mobile" ? "Proceed" : "Fetch Info"}</span>
+                  </Button>
+                </Grid>
+  
+                {infoFetched && numberinfo && <RepeatRechargeModal data={numberinfo} setAmount={setAmount} />}
+                {modalVisible && (
+                  <EnterMpinModal
+                    data={data}
+                    customerId={customerId}
+                    setModalVisible={setModalVisible}
+                    setSuccessRechage={setSuccessRechage}
+                    apiEnd={ApiEndpoints.PREPAID_RECHARGE}
+                    view="recharge"
+                    setShowSuccess={setShowSuccess}
+                    setMobile={setMobile}
+                    setInfoFetched={setInfoFetched}
+                  />
+                )}
+                {showSuccess && (
+                  <SuccessRechargeModal
+                    successRecharge={successRecharge}
+                    setShowSuccess={setShowSuccess}
+                  />
+                )}
+              </Box>
+            </Box>
+          </Card>
+        </Grid>
+      </Grid>
+    )}
   </div>
   
+  
+    
   );
 };
 
-export default ElectricityForm;
+export default MobileRechargeForm;
+
+
+
+

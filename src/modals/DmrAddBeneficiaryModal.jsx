@@ -93,15 +93,17 @@ const DmrAddBeneficiaryModal = ({
     } else {
       if (mpin !== "" && viewMpin) {
         data = {
-          number: rem_mobile && rem_mobile,
-          ben_acc: form.acc_no.value.toUpperCase(),
+          rem_mobile: rem_mobile && rem_mobile,
+          account_number: form.acc_no.value.toUpperCase(),
           ben_id: user.username,
+          bank_id: bankId,
           ifsc: ifscVal,
           latitude: loc.lat,
           longitude: loc.long,
-          ben_name: form.name.value,
+          name: form.name.value,
           pf: "WEB",
           mpin: mpin && mpin,
+        
         };
       } else {
         setViewMpin(true);
@@ -120,15 +122,17 @@ const DmrAddBeneficiaryModal = ({
       postJsonData(
         apiEnd,
         data = {
-          number: rem_mobile && rem_mobile,
-          ben_acc: form.acc_no.value.toUpperCase(),
+          rem_mobile: rem_mobile && rem_mobile,
+          account_number: form.acc_no.value.toUpperCase(),
           ben_id: user.username,
           ifsc: ifscVal,
+          bank_id: bankId,
           latitude: loc.lat,
           longitude: loc.long,
-          ben_name: form.name.value,
+          name: form.name.value,
           pf: "WEB",
           mpin: mpin && mpin,
+            verified: type ? 0 : 0,
         },
         setRequest,
         (res) => {
@@ -159,6 +163,7 @@ const DmrAddBeneficiaryModal = ({
           ben_acc: form.acc_no.value.toUpperCase(),
           ben_id: user.username,
           ifsc: ifscVal,
+          bank_id: bankId,
           latitude: loc.lat,
           longitude: loc.long,
           ben_name: form.name.value,
@@ -239,7 +244,8 @@ const DmrAddBeneficiaryModal = ({
         size="small"
       >
         {/* <Spinner loading={request} size="small" /> */}
-        {view === "MT_View" ? "Add Beneficiary" : "Add Vendor"}
+        {(view === "MT_View" && (type === "dmt1" || type === "dmt2")) ? "Add Beneficiary" : "Add Vendor"}
+
       </Button>
 
       <Box>
@@ -417,7 +423,7 @@ const DmrAddBeneficiaryModal = ({
             <ModalFooter
               form="addbene"
               request={request}
-              btn={view === "MT_View" ? "Add Beneficiary" : "Add Vendor"}
+              btn={(view === "MT_View" && (type === "dmt1" || type === "dmt2")) ? "Add Beneficiary" : "Add Vendor"}
               disable={!isValidName || !accNoV}
               twobuttons={type  ? "Verify & Add" : false}
           

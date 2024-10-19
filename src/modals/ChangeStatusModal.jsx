@@ -22,6 +22,7 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import { red } from "@mui/material/colors";
+import RightSidePannel from "../component/transactions/RightSidePannel";
 const style = {
   position: "absolute",
   top: "50%",
@@ -150,6 +151,10 @@ const ChangeStatusModal = ({ row, refresh }) => {
                }}
              />
            </Tooltip>)}
+           <Box sx={{mt:-1}}>
+           <RightSidePannel row={row} refresh={refresh}/>
+           </Box>
+
     </Box>
 //     <Box
 //     sx={{
