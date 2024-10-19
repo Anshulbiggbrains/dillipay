@@ -41,7 +41,7 @@ const contentStyle = {
   p: 3, // Add padding for content
 };
 
-const EditVirtualAccounts = ({ refresh, row }) => {
+const EditVirtualAccounts = ({ refresh, row,refreshFunc }) => {
   const [open, setOpen] = useState(false);
   const [request, setRequest] = useState(false);
   const allowedAccountsInitial = row.allowed_accounts
@@ -57,6 +57,7 @@ const EditVirtualAccounts = ({ refresh, row }) => {
   };
 
   const handleClose = () => {
+    refreshFunc()
     setAllowedAccounts(allowedAccountsInitial);
     if (refresh) refresh();
     setOpen(false);
@@ -67,7 +68,7 @@ const EditVirtualAccounts = ({ refresh, row }) => {
     const updatedAccounts = [...allowedAccounts, newAccount.trim()].filter(
       (account) => account
     );
-
+    refreshFunc()
     let data = {
       allowed_accounts: updatedAccounts.join(","), // Join the list back into a string
       id: row.id,
@@ -80,6 +81,7 @@ const EditVirtualAccounts = ({ refresh, row }) => {
       (res) => {
         okSuccessToast(res?.data?.message);
         if (refresh) refresh();
+        refreshFunc()
         handleClose();
       },
       (err) => {
