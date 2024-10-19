@@ -28,8 +28,7 @@ const Terms = () => {
                 <strong> “Platform”</strong>
                 created by LINKSTECH SERVICES PRIVATE LIMITED s Pvt. Ltd., a
                 company incorporated under the laws of India, with its
-                registered office at Plot No. 8 Pocket, 6, Sector 22, Rohini,
-                Delhi, 110086
+                registered office at Plot No.5 , Second Floor ,Pocket-5, Rohini Sector 24, New Delhi 110085
                 <strong>(“LINKSTECH ” or “Company”)</strong>.
               </p>
 

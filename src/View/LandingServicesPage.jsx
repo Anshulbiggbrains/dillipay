@@ -234,7 +234,7 @@ const LandingServicesPage = () => {
                     envName === "MoneyOddr" ? "#01A0E2" : primaryColor(),
                 }}
               ></Box>
-              <div className="landing-bg_para" style={{ textAlign: "justify" }}>
+              <div className="s" style={{ textAlign: "justify" }}>
                 {getEnv()} proud to say that we are one of the few vendors who
                 are authorized from IRCTC to book train tickets. Now you can
                 easily book tickets online for any train, class, or destination.
