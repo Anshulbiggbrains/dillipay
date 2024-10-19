@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { AppBar, Tabs, Tab, Box, Typography } from '@mui/material';
+import React from "react";
+import PropTypes from "prop-types";
+import { AppBar, Tabs, Tab, Box, Typography } from "@mui/material";
 
 function CustomTabs({ tabs, value, onChange, heading }) {
   return (
-    <Box sx={{ bgcolor: 'background.paper' }}>
+    <Box sx={{ bgcolor: "background.paper" }}>
       <AppBar position="static">
         <Tabs
           value={value}
@@ -12,22 +12,22 @@ function CustomTabs({ tabs, value, onChange, heading }) {
           variant="fullWidth"
           aria-label="full width tabs example"
           sx={{
-            '& .MuiTabs-indicator': {
-              backgroundColor: '#fcde67',
+            "& .MuiTabs-indicator": {
+              backgroundColor: "#fcde67",
             },
-            '& .MuiTab-root': {
-              color: '#000',
-              '& .MuiSvgIcon-root': {
-                color: '#ee6c4d',
+            "& .MuiTab-root": {
+              color: "#000",
+              "& .MuiSvgIcon-root": {
+                color: " #e68244",
               },
             },
-            '& .MuiTab-root.Mui-selected': {
-              color: '#FE0000',
-              '& .MuiSvgIcon-root': {
-                color: '#FE0000',
+            "& .MuiTab-root.Mui-selected": {
+              color: "#006600",
+              "& .MuiSvgIcon-root": {
+                color: "#006600",
               },
             },
-            minHeight: '30px',
+            minHeight: "30px",
           }}
         >
           {tabs.map((tab, index) => (
@@ -37,15 +37,15 @@ function CustomTabs({ tabs, value, onChange, heading }) {
               icon={tab.icon}
               {...a11yProps(index)}
               sx={{
-                bgcolor: 'white',
-                color: 'black',
-                minHeight: '30px',
-                fontSize: '0.800rem',
-                padding: '6px 12px',
-                flexDirection: 'row',
-                gap: '8px',
-                '&:last-child': {
-                  borderRight: 'none', 
+                bgcolor: "white",
+                color: "black",
+                minHeight: "30px",
+                fontSize: "0.800rem",
+                padding: "6px 12px",
+                flexDirection: "row",
+                gap: "8px",
+                "&:last-child": {
+                  borderRight: "none",
                 },
               }}
             />
@@ -81,9 +81,7 @@ function TabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 1.5, overflow: 'auto' }}>
-          {children}
-        </Box>
+        <Box sx={{ p: 1.5, overflow: "auto" }}>{children}</Box>
       )}
     </div>
   );
@@ -99,7 +97,7 @@ TabPanel.propTypes = {
 function a11yProps(index) {
   return {
     id: `full-width-tab-${index}`,
-    'aria-controls': `full-width-tabpanel-${index}`,
+    "aria-controls": `full-width-tabpanel-${index}`,
   };
 }
 

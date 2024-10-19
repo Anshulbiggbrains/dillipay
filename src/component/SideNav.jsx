@@ -384,7 +384,8 @@ export default function SideNav(props, { data }) {
         sx={{
           height: { xs: "80vh", sm: "100vh" },
           overflowY: "scroll",
-          background: "#DF400C",
+          background: "#319B88 ",
+          // background: "#DF400C",
           borderRadius: "0px 10px",
         }}
       >
@@ -433,14 +434,14 @@ export default function SideNav(props, { data }) {
               {user?.role === "Dd" ? (
                 <Button
                   sx={{ color: whiteColor() }}
-                  startIcon={<LogoutIcon sx={{ color: "#FF9500" }} />}
+                  startIcon={<LogoutIcon sx={{ color: "#C1E899" }} />}
                 >
                   Sign Out
                 </Button>
               ) : (
                 <Button
                   sx={{ color: whiteColor() }}
-                  startIcon={<LogoutIcon sx={{ color: "#FF9500" }} />}
+                  startIcon={<LogoutIcon sx={{ color: "#C1E899" }} />}
                 >
                   Logout
                 </Button>
@@ -564,7 +565,7 @@ export default function SideNav(props, { data }) {
           <div
             style={{
               display: "flex",
-             marginRight:"4%",
+              marginRight: "4%",
               justifyContent: "end",
             }}
           >
@@ -574,7 +575,6 @@ export default function SideNav(props, { data }) {
                 borderRadius: "0px",
                 p: 0,
                 textAlign: "right",
-              
               }}
               size="large"
               aria-label="account of current user"

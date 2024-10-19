@@ -304,7 +304,6 @@ export const Admin_nav = [
     to: "/admin/loginHistory",
   },
 
-
   // {
   //   title: "Employees",
   //   icon: employee1,
