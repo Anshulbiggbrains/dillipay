@@ -141,7 +141,7 @@ export const getFirmAddress = () => {
 };
 export const getFirmContact = () => {
   if (process.env.REACT_APP_TITLE === "DilliPay") {
-    return `+91 9811434488`;
+    return `+91 9355128199`;
   }
 };
 export const getFirmEmail = () => {
