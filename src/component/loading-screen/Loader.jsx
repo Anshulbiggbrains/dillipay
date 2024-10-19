@@ -96,6 +96,117 @@
 
 // export default Loader
 
+// import { Box } from "@mui/material";
+// import { smLogo } from "../../iconsImports"; // Ensure this path is correct
+
+// const Loader = ({ loading, children }) => {
+//   return (
+//     <div>
+//       {loading && (
+//         <Box
+//           sx={{
+//             position: "fixed",
+//             top: 0,
+//             left: 0,
+//             right: 0,
+//             bottom: 0,
+//             display: "flex",
+//             alignItems: "center",
+//             justifyContent: "center",
+//             backdropFilter: "blur(5px)",
+//             background: "rgba(0, 0, 0, 0.5)", // Darker backdrop for better visibility
+//             zIndex: 9998,
+//             flexDirection: "column",
+//           }}
+//         >
+//           <div className="loader-container">
+//             <img
+//               src={smLogo}
+//               style={{
+//                 cursor: "pointer",
+//                 width: 80,
+//                 animation: "zoomInOut 1.5s infinite", // Zoom in/out animation for the logo
+//               }}
+//               alt="Loading..."
+//             />
+//             <div className="circle1" />
+//             <div className="circle2" />
+//           </div>
+//           <p className="loading-text">Please wait while we are processing your request...</p>
+//         </Box>
+//       )}
+//       {children}
+//       <style jsx>{`
+//         .loader-container {
+//           position: relative;
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
+//         }
+
+//         .circle1,
+//         .circle2 {
+//           position: absolute;
+//           border-radius: 50%; /* Circular shape */
+//           animation: zoomInOut 2.5s infinite; /* Zoom in/out animation for circles */
+//         }
+
+//         .circle1 {
+//           width: 200px;
+//           height: 200px;
+//           border: 8px solid #1877F2;
+//           animation-delay: 0s; /* Starts immediately */
+//         }
+
+//         .circle2 {
+//           width: 220px;
+//           height: 220px;
+//           border: 8px solid #F18D18;
+//           animation-delay: 0.25s; /* Starts a bit later for a staggered effect */
+//           opacity: 0.3;
+//         }
+
+//         @keyframes rotateAnimation1 {
+//           0% {
+//             transform: rotate(0deg);
+//           }
+//           100% {
+//             transform: rotate(360deg);
+//           }
+//         }
+
+//         @keyframes rotateAnimation2 {
+//           0% {
+//             transform: rotate(0deg);
+//           }
+//           100% {
+//             transform: rotate(-360deg);
+//           }
+//         }
+
+//         @keyframes zoomInOut {
+//           0%, 100% {
+//             transform: scale(1);
+//           }
+//           50% {
+//             transform: scale(1.1); /* Zoom in effect */
+//           }
+//         }
+
+//         .loading-text {
+//           margin-top: 5%;
+//           font-size: 20px;
+//           color: white;
+//           font-family: Arial, sans-serif;
+//           text-align: center; /* Center the text */
+//         }
+//       `}</style>
+//     </div>
+//   );
+// };
+
+// export default Loader;
+
 import { Box } from "@mui/material";
 import { smLogo } from "../../iconsImports"; // Ensure this path is correct
 
@@ -114,7 +225,7 @@ const Loader = ({ loading, children }) => {
             alignItems: "center",
             justifyContent: "center",
             backdropFilter: "blur(5px)",
-            background: "rgba(0, 0, 0, 0.5)", // Darker backdrop for better visibility
+            background: "rgba(255, 255, 255, 0.8)", // Lighter backdrop
             zIndex: 9998,
             flexDirection: "column",
           }}
@@ -124,15 +235,14 @@ const Loader = ({ loading, children }) => {
               src={smLogo}
               style={{
                 cursor: "pointer",
-                width: 80,
-                animation: "zoomInOut 1.5s infinite", // Zoom in/out animation for the logo
+                width: 120, // Increased size
+                animation: "spin 2s linear infinite", // Spin animation for the logo
               }}
               alt="Loading..."
             />
-            <div className="circle1" />
-            <div className="circle2" />
+            <div className="loader-bar" />
           </div>
-          <p className="loading-text">Please wait while we are processing your request...</p>
+          <p className="loading-text">Hang tight! We're processing your request.</p>
         </Box>
       )}
       {children}
@@ -142,31 +252,31 @@ const Loader = ({ loading, children }) => {
           display: flex;
           align-items: center;
           justify-content: center;
+          flex-direction: column;
         }
 
-        .circle1,
-        .circle2 {
-          position: absolute;
-          border-radius: 50%; /* Circular shape */
-          animation: zoomInOut 2.5s infinite; /* Zoom in/out animation for circles */
+        .loader-bar {
+          width: 100px;
+          height: 6px;
+          background: #1877F2;
+          border-radius: 3px; /* Rounded edges */
+          margin-top: 15px; /* Space between logo and bar */
+          animation: loading 1.5s linear infinite; /* Loading animation */
         }
 
-        .circle1 {
-          width: 200px;
-          height: 200px;
-          border: 8px solid #1877F2;
-          animation-delay: 0s; /* Starts immediately */
+        @keyframes loading {
+          0% {
+            transform: scaleX(0);
+          }
+          50% {
+            transform: scaleX(1);
+          }
+          100% {
+            transform: scaleX(0);
+          }
         }
 
-        .circle2 {
-          width: 220px;
-          height: 220px;
-          border: 8px solid #F18D18;
-          animation-delay: 0.25s; /* Starts a bit later for a staggered effect */
-          opacity: 0.3;
-        }
-
-        @keyframes rotateAnimation1 {
+        @keyframes spin {
           0% {
             transform: rotate(0deg);
           }
@@ -175,29 +285,11 @@ const Loader = ({ loading, children }) => {
           }
         }
 
-        @keyframes rotateAnimation2 {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(-360deg);
-          }
-        }
-
-        @keyframes zoomInOut {
-          0%, 100% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(1.1); /* Zoom in effect */
-          }
-        }
-
         .loading-text {
-          margin-top: 5%;
-          font-size: 20px;
-          color: white;
-          font-family: Arial, sans-serif;
+          margin-top: 20px;
+          font-size: 16px;
+          color: #333;
+          font-family: 'Arial', sans-serif;
           text-align: center; /* Center the text */
         }
       `}</style>
@@ -206,5 +298,10 @@ const Loader = ({ loading, children }) => {
 };
 
 export default Loader;
+
+
+
+
+
 
 
