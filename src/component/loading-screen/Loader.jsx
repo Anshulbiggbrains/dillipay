@@ -207,6 +207,99 @@
 
 // export default Loader;
 
+// import { Box } from "@mui/material";
+// import { smLogo } from "../../iconsImports"; // Ensure this path is correct
+
+// const Loader = ({ loading, children }) => {
+//   return (
+//     <div>
+//       {loading && (
+//         <Box
+//           sx={{
+//             position: "fixed",
+//             top: 0,
+//             left: 0,
+//             right: 0,
+//             bottom: 0,
+//             display: "flex",
+//             alignItems: "center",
+//             justifyContent: "center",
+//             backdropFilter: "blur(5px)",
+//             background: "rgba(255, 255, 255, 0.8)", // Lighter backdrop
+//             zIndex: 9998,
+//             flexDirection: "column",
+//           }}
+//         >
+//           <div className="loader-container">
+//             <img
+//               src={smLogo}
+//               style={{
+//                 cursor: "pointer",
+//                 width: 120, // Increased size
+//                 animation: "spin 2s linear infinite", // Spin animation for the logo
+//               }}
+//               alt="Loading..."
+//             />
+//             <div className="loader-bar" />
+//           </div>
+//           <p className="loading-text">Hang tight! We're processing your request.</p>
+//         </Box>
+//       )}
+//       {children}
+//       <style jsx>{`
+//         .loader-container {
+//           position: relative;
+//           display: flex;
+//           align-items: center;
+//           justify-content: center;
+//           flex-direction: column;
+//         }
+
+//         .loader-bar {
+//           width: 100px;
+//           height: 6px;
+//           background: #1877F2;
+//           border-radius: 3px; /* Rounded edges */
+//           margin-top: 15px; /* Space between logo and bar */
+//           animation: loading 1.5s linear infinite; /* Loading animation */
+//         }
+
+//         @keyframes loading {
+//           0% {
+//             transform: scaleX(0);
+//           }
+//           50% {
+//             transform: scaleX(1);
+//           }
+//           100% {
+//             transform: scaleX(0);
+//           }
+//         }
+
+//         @keyframes spin {
+//           0% {
+//             transform: rotate(0deg);
+//           }
+//           100% {
+//             transform: rotate(360deg);
+//           }
+//         }
+
+//         .loading-text {
+//           margin-top: 20px;
+//           font-size: 16px;
+//           color: #333;
+//           font-family: 'Arial', sans-serif;
+//           text-align: center; /* Center the text */
+//         }
+//       `}</style>
+//     </div>
+//   );
+// };
+
+// export default Loader;
+
+
 import { Box } from "@mui/material";
 import { smLogo } from "../../iconsImports"; // Ensure this path is correct
 
@@ -224,10 +317,12 @@ const Loader = ({ loading, children }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            backdropFilter: "blur(5px)",
-            background: "rgba(255, 255, 255, 0.8)", // Lighter backdrop
+            backdropFilter: "blur(10px)",
+            background: "rgba(30, 30, 30, 0.85)", // Semi-transparent dark background
             zIndex: 9998,
             flexDirection: "column",
+            color: "#fff",
+            textAlign: "center",
           }}
         >
           <div className="loader-container">
@@ -235,14 +330,14 @@ const Loader = ({ loading, children }) => {
               src={smLogo}
               style={{
                 cursor: "pointer",
-                width: 120, // Increased size
-                animation: "spin 2s linear infinite", // Spin animation for the logo
+                width: 120, // Larger logo
+                animation: "spin 1.5s linear infinite", // Spin animation
               }}
               alt="Loading..."
             />
             <div className="loader-bar" />
           </div>
-          <p className="loading-text">Hang tight! We're processing your request.</p>
+          <p className="loading-text">Just a moment! We're preparing your experience...</p>
         </Box>
       )}
       {children}
@@ -256,12 +351,12 @@ const Loader = ({ loading, children }) => {
         }
 
         .loader-bar {
-          width: 100px;
+          width: 180px;
           height: 6px;
-          background: #1877F2;
+          background: linear-gradient(90deg, #ff4081, #ffeb3b); // Gradient loading bar
           border-radius: 3px; /* Rounded edges */
-          margin-top: 15px; /* Space between logo and bar */
-          animation: loading 1.5s linear infinite; /* Loading animation */
+          margin-top: 20px; /* Space between logo and bar */
+          animation: loading 1.5s ease-in-out infinite; /* Loading animation */
         }
 
         @keyframes loading {
@@ -287,10 +382,19 @@ const Loader = ({ loading, children }) => {
 
         .loading-text {
           margin-top: 20px;
-          font-size: 16px;
-          color: #333;
-          font-family: 'Arial', sans-serif;
-          text-align: center; /* Center the text */
+          font-size: 18px;
+          font-weight: bold;
+          color: #ffffff; /* White text */
+          animation: fadeIn 1.5s ease-in-out infinite alternate; /* Text fade animation */
+        }
+
+        @keyframes fadeIn {
+          0% {
+            opacity: 0.7;
+          }
+          100% {
+            opacity: 1;
+          }
         }
       `}</style>
     </div>
@@ -298,7 +402,6 @@ const Loader = ({ loading, children }) => {
 };
 
 export default Loader;
-
 
 
 
