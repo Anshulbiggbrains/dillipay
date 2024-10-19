@@ -52,6 +52,7 @@ ElevationScroll.propTypes = {
 
 // Menu items
 const pagesLg = [
+  { navItems: "HOME", to: "/", sName: "homeSec" },
   { navItems: "ABOUT US", to: "/about-us", id: "about-us", sName: "aboutSec" },
   {
     navItems: "OUR SERVICES",
@@ -68,6 +69,7 @@ const pagesLg = [
 ];
 const loginPage = { navItems: "LOGIN/SIGN UP", to: "/login", sName: "" };
 const pagesSm = [
+  { navItems: "HOME", to: "/", sName: "homeSec" },
   { navItems: "ABOUT US", to: "/about-us", sName: "aboutSec" },
   { navItems: "OUR SERVICES", to: "/our-services", sName: "servicesSec" },
   { navItems: "CONTACT US", to: "/contact-us", sName: "contactSec" },
@@ -165,6 +167,7 @@ export default function Navbar(props) {
                 display: { xs: "none", md: "flex" },
                 justifyContent: "center",
                 alignItems: "center",
+                gap: 4,
               }}
             >
               {pagesLg.map((item) => (
@@ -272,10 +275,10 @@ export default function Navbar(props) {
                     onClick={handleCloseNavMenu}
                     sx={{
                       background: "#319B88",
-                      color:"#fff",
+                      color: "#fff",
                       "&:hover": {
                         background: "#319B88",
-                      }
+                      },
                     }}
                   >
                     <Link to={item.to} className="navLinks">
