@@ -94,11 +94,11 @@ const SettlementsView = () => {
       name: "KYC",
       selector: (row) => (
         <div style={{ textAlign: "left" }}>
-          {" "}
+      
           <BeneficiaryKycVerification refresh={refresh} row={row} />
         </div>
       ),
-      width: "140px",
+      width: "130px",
       center: true,
     },
     {

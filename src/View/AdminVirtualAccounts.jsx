@@ -60,9 +60,7 @@ const AdminVirtualAccounts = ({ value }) => {
     {
       name: "User",
       selector: (row) => (
-        <div style={{ textAlign: "left" }}>
-          {row.establishment}
-        </div>
+        <div style={{ textAlign: "left" }}>{row.establishment}</div>
       ),
       wrap: true,
       width: "280px",
@@ -70,18 +68,14 @@ const AdminVirtualAccounts = ({ value }) => {
     {
       name: "Virtual Account",
       cell: (row) => (
-        <div style={{ textAlign: "center", color: "#473b7f" }}>
-          {row.va}
-        </div>
+        <div style={{ textAlign: "center", color: "#473b7f" }}>{row.va}</div>
       ),
       wrap: true,
     },
     {
       name: "Allowed Accounts",
       cell: (row) => (
-        <div style={{ textAlign: "left" }}>
-          {row.allowed_accounts}
-        </div>
+        <div style={{ textAlign: "left" }}>{row.allowed_accounts}</div>
       ),
       wrap: true,
       width: "300px",
@@ -159,9 +153,7 @@ const AdminVirtualAccounts = ({ value }) => {
     {
       name: "VA",
       cell: (row) => (
-        <div style={{ textAlign: "center" }}>
-          {row.va_account}
-        </div>
+        <div style={{ textAlign: "center" }}>{row.va_account}</div>
       ),
       center: true,
       wrap: true,
@@ -196,7 +188,7 @@ const AdminVirtualAccounts = ({ value }) => {
           pendingStatusText="Pending"
           rejectedStatusText="Failed"
           refundStatusText="Refund"
-          fontSize="14px"
+          fontSize="13px"
         />
       ),
       center: true,
@@ -209,27 +201,30 @@ const AdminVirtualAccounts = ({ value }) => {
           sx={{
             display: "flex",
             justifyContent: "center",
-            mx: 4,
           }}
         >
           <CheckResponseModal
             row={row}
             fontSize="11px"
-            width="130px"
+            width="110px"
             height="30px"
+            bottomRadius="8px"
           />
         </Box>
       ),
-      width: "150px",
+
+      center: true,
     },
     {
       name: "Actions",
       selector: (row) => (
-        <Box sx={{ display: "flex", mr: 3 }}>
-          {user.id === 1 && <EditVirtualTransactions row={row} refresh={refresh} />}
+        <Box sx={{ display: "flex" }}>
+          {user.id === 1 && (
+            <EditVirtualTransactions row={row} refresh={refresh} />
+          )}
         </Box>
       ),
-      right: true,
+      center: true,
     },
   ];
 
@@ -309,7 +304,6 @@ const AdminVirtualAccounts = ({ value }) => {
               isFilterAllowed={true}
               filterComponent={
                 <FilterCard
-                 
                   showSearch={false}
                   ifUsernameFilter
                   setQuery={setQuery}
@@ -372,7 +366,6 @@ const AdminVirtualAccounts = ({ value }) => {
               isFilterAllowed={true}
               filterComponent={
                 <FilterCard
-                 
                   showSearch={false}
                   ifBeneKycStatus
                   ifSenderNameFilter

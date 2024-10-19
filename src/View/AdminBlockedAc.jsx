@@ -35,12 +35,6 @@ import AdminAccountLimit from "./AdminAccountLimit";
 import DeleteBlockedAcc from "../modals/DeleteBlockedAcc";
 import AddBlockedAccount from "../modals/AddBlockedAccount";
 
-
-
-
-
-
-
 let refresh;
 function refreshFunc(setQueryParams) {
   setQueryParams("");
@@ -49,8 +43,6 @@ function refreshFunc(setQueryParams) {
 let refreshFilter;
 
 // tabs in top bar
-
-
 
 const AdminBlockedAc = () => {
   const theme = useTheme();
@@ -63,7 +55,6 @@ const AdminBlockedAc = () => {
   //   const role = user?.role;
   const [value, setValue] = useState(0);
   const [currentType, setCurrentType] = useState();
- 
 
   const searchOptions = [
     { field: "AC Name", parameter: "acc_name" },
@@ -73,9 +64,6 @@ const AdminBlockedAc = () => {
     { field: "AC Name", parameter: "acc_name" },
     { field: "AC Number", parameter: "acc_no" },
   ];
-
- 
-
 
   const settlementBeneficiarys = [
     {
@@ -104,120 +92,100 @@ const AdminBlockedAc = () => {
           </div>
         </>
       ),
-      width: "160px",
     },
-  
+
     {
       name: "Account Number",
       cell: (row) => (
         <div style={{ textAlign: "center" }}>
           <div>{row.acc_no}</div>
-        
         </div>
       ),
       center: true,
       wrap: true,
-      width: "280px",
     },
-  
-   
+
     {
       name: "Ifsc",
       cell: (row) => (
         <div style={{ textAlign: "center" }}>
           <div>{row.ifsc}</div>
-        
         </div>
       ),
       center: true,
       wrap: true,
-      width: "280px",
     },
-  
-  
+
     {
       name: "Actions",
-      selector: (row) =>   
+      selector: (row) => (
         <>
           <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-end",
-          }}
-        >
-     
-      
-      <DeleteBlockedAcc row={row} refresh={refresh} />,
-      </div>
-      
-      </>
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+            }}
+          >
+            <DeleteBlockedAcc row={row} refresh={refresh} />,
+          </div>
+        </>
+      ),
     },
   ];
-  
- 
-  return (
 
-      <Grid container>
-      
-   
-      
-        {/* 1  "Settlement Beneficiary's" */}
-        <Grid item md={12} sm={12} xs={12}>
-        
-        
-            <ApiPaginateSearch
-              showSearch={true}
-              actionButtons={
-                <Grid
-                  item
-                  md={12}
-                  sm={12}
-                  xs={12}
+  return (
+    <Grid container>
+      {/* 1  "Settlement Beneficiary's" */}
+      <Grid item md={12} sm={12} xs={12}>
+        <ApiPaginateSearch
+          showSearch={true}
+          actionButtons={
+            <Grid
+              item
+              md={12}
+              sm={12}
+              xs={12}
+              sx={{
+                display: "flex",
+                justifyContent: { md: "end", xs: "start" },
+                alignItems: "center",
+                pr: 1,
+                mt: { md: 0, xs: 2, sm: 2 },
+              }}
+            >
+              <AddBlockedAccount refresh={refresh} />
+              <Tooltip title="refresh">
+                <IconButton
+                  aria-label="refresh"
+                  // color="success"
                   sx={{
-                    display: "flex",
-                    justifyContent: { md: "end", xs: "start" },
-                    alignItems: "center",
-                    pr: 1,
-                    mt: { md: 0, xs: 2, sm: 2 },
+                    color: "#0F52BA",
+                  }}
+                  onClick={() => {
+                    refreshFunc(setQuery);
                   }}
                 >
-                  <AddBlockedAccount  refresh={refresh}/>
-                  <Tooltip title="refresh">
-                    <IconButton
-                      aria-label="refresh"
-                      // color="success"
-                      sx={{
-                        color: "#0F52BA",
-                      }}
-                      onClick={() => {
-                        refreshFunc(setQuery);
-                      }}
-                    >
-                      <CachedIcon className="refresh-purple" />
-                    </IconButton>
-                  </Tooltip>
-                </Grid>
-              }
-              apiEnd={ApiEndpoints.GET_BLOCKED_AC}
-              searchOptions={searchOptions}
-              setQuery={setQuery}
-              columns={settlementBeneficiarys}
-              apiData={apiData}
-              setApiData={setApiData}
-              tableStyle={CustomStyles}
-              queryParam={query ? query : ""}
-              returnRefetch={(ref) => {
-                refresh = ref;
-              }}
-              isFilterAllowed={true}
-           
-            />
-         
-        </Grid>
-       
+                  <CachedIcon className="refresh-purple" />
+                </IconButton>
+              </Tooltip>
+            </Grid>
+          }
+          apiEnd={ApiEndpoints.GET_BLOCKED_AC}
+          searchOptions={searchOptions}
+          setQuery={setQuery}
+          columns={settlementBeneficiarys}
+          apiData={apiData}
+          setApiData={setApiData}
+          tableStyle={CustomStyles}
+          queryParam={query ? query : ""}
+          returnRefetch={(ref) => {
+            refresh = ref;
+          }}
+          isFilterAllowed={true}
+        />
       </Grid>
-  
+    </Grid>
   );
 };
 
