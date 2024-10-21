@@ -95,11 +95,8 @@ const LandingPageBuildSecurity = () => {
                   className="landing-bg_para"
                   style={{
                     color: "#555",
-<<<<<<< HEAD
                     textAlign: index === 1 ? "right" : "left",
                     width: index === 1 ? "100%" : "auto", // Ensure full width for right alignment
-=======
->>>>>>> 25a34486f9515e9c8ce47a5729e547fb9811041c
                   }}
                 >
                   {index === 0 &&
