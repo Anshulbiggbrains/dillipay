@@ -221,10 +221,7 @@ export default function Navbar(props) {
                 display: { xs: "none", md: "flex" },
               }}
             >
-              <Button
-             className="button"
-                onClick={() => navigate("/login")}
-              >
+              <Button className="button" onClick={() => navigate("/login")}>
                 {loginPage.navItems}
               </Button>
             </Box>

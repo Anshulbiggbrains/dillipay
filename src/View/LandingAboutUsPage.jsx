@@ -174,13 +174,14 @@ const LandingAboutUsPage = () => {
                     <div style={{ fontSize: "12px", textAlign: "left" }}>
                       <span
                         style={{
-                          fontWeight: "900",
+                          fontWeight: "800",
                           fontSize: "15px",
+                          gap: 3,
                         }}
                       >
                         Merchants
                       </span>
-                      More than 5000 merchants
+                      <span> More than 5000 merchants</span>
                       <br />
                       onboarded
                     </div>
@@ -214,13 +215,14 @@ const LandingAboutUsPage = () => {
                     <div style={{ fontSize: "12px", textAlign: "left" }}>
                       <span
                         style={{
-                          fontWeight: "900",
+                          fontWeight: "800",
                           fontSize: "15px",
+                          gap: 3,
                         }}
                       >
                         Customers
                       </span>
-                      More than 11 Lakh happy customers
+                      <span> More than 11 Lakh happy customers </span>
                     </div>
                   </div>
                 </div>
@@ -252,13 +254,14 @@ const LandingAboutUsPage = () => {
                     <div style={{ fontSize: "12px", textAlign: "left" }}>
                       <span
                         style={{
-                          fontWeight: "900",
+                          fontWeight: "800",
                           fontSize: "15px",
+                          gap: 3,
                         }}
                       >
                         City
                       </span>
-                      Spread across 5000 plus cities
+                      <span>Spread across 5000 plus cities</span>
                     </div>
                   </div>
                 </div>
@@ -290,14 +293,15 @@ const LandingAboutUsPage = () => {
                     <div style={{ fontSize: "12px", textAlign: "left" }}>
                       <span
                         style={{
-                          fontWeight: "900",
+                          fontWeight: "800",
                           fontSize: "15px",
+                          gap: 3,
                         }}
                         className="mr-2"
                       >
                         Transactions
                       </span>
-                      More than 5,00,000 Transactions Monthly
+                      <span>More than 5,00,000 Transactions Monthly</span>
                     </div>
                   </div>
                 </div>
@@ -501,7 +505,7 @@ const LandingAboutUsPage = () => {
                               {/* Innovation Icon aligned to the right */}
                               <EmojiObjectsIcon
                                 sx={{
-                                  fontSize: "50px",
+                                  fontSize: "45px",
                                   color: "#1b5e20",
                                   marginBottom: "10px",
                                 }}
@@ -559,7 +563,7 @@ const LandingAboutUsPage = () => {
                             >
                               <SecurityIcon
                                 sx={{
-                                  fontSize: "50px",
+                                  fontSize: "45px",
                                   color: "#1b5e20",
                                   marginBottom: "10px",
                                 }}
@@ -674,9 +678,9 @@ const LandingAboutUsPage = () => {
                                 alignItems: "flex-start",
                               }}
                             >
-                              <EmojiObjectsIcon
+                              <IntegrationInstructionsIcon
                                 sx={{
-                                  fontSize: "50px",
+                                  fontSize: "45px",
                                   color: "#1b5e20",
                                   marginBottom: "10px",
                                 }}
@@ -732,9 +736,9 @@ const LandingAboutUsPage = () => {
                                 alignItems: "flex-start",
                               }}
                             >
-                              <EmojiObjectsIcon
+                              <ShutterSpeedIcon
                                 sx={{
-                                  fontSize: "50px",
+                                  fontSize: "45px",
                                   color: "#1b5e20",
                                   marginBottom: "10px",
                                 }}
