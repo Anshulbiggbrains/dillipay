@@ -1,4 +1,4 @@
-import { Box, Container, Grid, IconButton } from "@mui/material";
+import { Box, Container, Grid, IconButton, Typography } from "@mui/material";
 import React from "react";
 import { PrimaryButton } from "../theme/Theme";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -40,13 +40,22 @@ const LandingPageIntro = () => {
           >
             <Box
               sx={{
-                mt: { xs: 10, md: 25 },
+                mt: { xs: 10, md: 10 },
                 textAlign: { xs: "center", md: "left" },
               }}
             >
-              <h1 style={{ fontSize: "3rem", fontWeight: 700 }}>
-                Fast, Secure, and <br />
-                <span style={{ color: "#fff" }}>Effortless</span> Payment.
+              <h1
+                style={{
+                  fontSize: "3rem",
+                  fontWeight: 700,
+                }}
+              >
+                Fast , Secure , and
+                <br />
+                <span style={{ color: "#FFD700", fontSize: "3.2" }}>
+                  Effortless
+                </span>{" "}
+                Payment.
               </h1>
 
               {/* <p style={{ fontSize: "1.5rem", marginTop: "1rem" }}>
@@ -72,11 +81,30 @@ const LandingPageIntro = () => {
                   </section>
                 </div>
               ) : (
-                <p style={{ fontSize: "1.3rem", marginTop: "2rem" }}>
-                  <b>{env === "DilliPay" ? "DilliPay" : "PaisaKart"}</b> is
-                  designed to simplify and secure online transactions for
-                  businesses and individuals.
-                </p>
+                <div>
+                  <p
+                    style={{
+                      fontSize: "1.3rem",
+                      marginTop: "2rem",
+                      textAlign: "justify",
+                    }}
+                  >
+                    <b>{env === "DilliPay" ? "DilliPay" : "PaisaKart"}</b> is
+                    designed to simplify and secure online transactions for
+                    businesses and individuals.
+                  </p>
+                  <p
+                    style={{
+                      fontSize: "1.3rem",
+                      marginTop: "1.1rem",
+                      textAlign: "justify",
+                    }}
+                  >
+                    One of the fastest growing names in Indian Recharge industry
+                    that is recognized for providing the best Recharge services
+                    at High success Ratio.
+                  </p>
+                </div>
               )}
 
               <Box
@@ -97,12 +125,19 @@ const LandingPageIntro = () => {
                 <PrimaryButton
                   variant="contained"
                   size="small"
-                  sx={{ mr: { xs: 0, md: 2 }, mb: { md: 0, xs: 2 } }}
+                  sx={{
+                    mr: { xs: 0, md: 2 },
+                    mb: { md: 0, xs: 2 },
+                    borderRadius: "8px",
+                    fontWeight: "bold",
+                    fontSize: "13px",
+                  }}
                   onClick={() => {
                     navigate("/login");
                   }}
                 >
-                  Get Started <ArrowForwardIcon sx={{ ml: 1 }} />
+                  Get Started{" "}
+                  <ArrowForwardIcon sx={{ ml: 1, fontWeight: "bold" }} />
                 </PrimaryButton>
               </Box>
             </Box>

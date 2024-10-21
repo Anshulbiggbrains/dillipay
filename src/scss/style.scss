@@ -65,8 +65,11 @@ body {
 .navLinks {
   color: #000 !important;
   // background: linear-gradient(to right, #7fb4f9, #ee5f5f);
-  font-family: "Ubuntu", sans-serif !important;
+  font-family: "Roboto", sans-serif !important;
   transition: color 0.3s ease;
+  font-weight: 600;
+  font-size: "18px";
+  box-Shadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
 }
 
 .navLinks:focus {
@@ -74,6 +77,7 @@ body {
 }
 .navLinks:hover {
   color: #015e4d !important;
+ 
 }
 .navitems {
   color: black !important;
@@ -2497,6 +2501,7 @@ div.second {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  
 }
 //
 .flex-hc-vc {

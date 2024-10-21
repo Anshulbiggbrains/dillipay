@@ -90,7 +90,12 @@ const LandingPageBuildSecurity = () => {
                   },
                 }}
               >
-                <span className="landing-bg_para" style={{ color: "#555" }}>
+                <span
+                  className="landing-bg_para"
+                  style={{
+                    color: "#555",
+                  }}
+                >
                   {index === 0 &&
                     "We ensure you get a good night’s sleep with your money staying with large and highly stable banks in India."}
                   {index === 1 &&

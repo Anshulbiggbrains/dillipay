@@ -27,7 +27,7 @@ const LandingPageWeOffer = () => {
     },
     {
       icon: <MobileFriendlyIcon />,
-      head: "Recharges ",
+      head: "RECHARGES ",
       para: " Instantly recharge your prepaid mobile plans across all major carriers. Choose the amount and pay securely, ensuring you're always connected.",
     },
     {
@@ -47,7 +47,7 @@ const LandingPageWeOffer = () => {
     },
     {
       icon: <MonetizationOnIcon />,
-      head: "Money Transfer",
+      head: "MONEY TRANSFER",
       para: "Send money instantly to friends, family, or businesses locally or internationally. Enjoy real-time processing that ensures your funds reach their destination quickly.",
     },
   ];

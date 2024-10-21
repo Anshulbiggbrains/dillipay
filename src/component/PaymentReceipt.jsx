@@ -618,7 +618,7 @@ const PaymentReceipt = () => {
                   <Box
                     sx={{
                       display: "flex",
-                      mt: 1,
+                      mt: 0.6,
                       gap: 1.2,
 
                       color: "#FF5722",
@@ -633,7 +633,7 @@ const PaymentReceipt = () => {
                         fontSize: "14px",
                       }}
                     >
-                      Flat No. 8, Pocket 6, Sector 22, Rohini, Delhi, 110086
+                      Plot No.5 2nd floor Pocket-5, Rohini Sec 24, Delhi 110085
                     </Typography>
                   </Box>
 
@@ -655,7 +655,7 @@ const PaymentReceipt = () => {
                         fontFamily: "'Roboto', sans-serif",
                       }}
                     >
-                      Email: DilliPay@gmail.com
+                      Email: support@dillipay.com
                     </Typography>
                   </Box>
 
@@ -677,7 +677,7 @@ const PaymentReceipt = () => {
                         fontFamily: "'Roboto', sans-serif",
                       }}
                     >
-                      Phone: 84474445497
+                      Phone: 9355128199
                     </Typography>
                   </Box>
                 </Box>
@@ -1065,7 +1065,7 @@ const PaymentReceipt = () => {
                 justifyContent: "space-between",
                 alignItems: "center",
                 color: "#0D47A1",
-                mt: 6,
+                mt: 12,
               }}
             >
               <Typography

@@ -20,6 +20,7 @@ export const PrimaryButton = styled(Button)(() => ({
   backgroundColor: primaryColor(),
   width: "12rem",
   height: "3rem",
+  
   color: whiteColor(),
   "&:hover": {
     backgroundColor: primaryColor(),
