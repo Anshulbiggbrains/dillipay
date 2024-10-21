@@ -86,10 +86,10 @@ const LandingPageBuildSecurity = () => {
                     color: "#555",
                     textAlign: index % 2 === 0 ? "left" : "right",
                     width: "100%",
-                    marginTop: "1rem", // Margin for separation
-                    lineHeight: "1.5", // Adjust line height for readability
-                    maxWidth: "600px", // Set a max width for wrapping
-                    whiteSpace: "normal", // Allow text to wrap normally
+                    marginTop: "1rem",
+                    lineHeight: "1.5",
+                    maxWidth: "600px",
+                    whiteSpace: "normal",
                   }}
                 >
                   {index === 0 &&
