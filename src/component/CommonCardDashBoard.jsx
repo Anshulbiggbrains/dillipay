@@ -13,7 +13,7 @@ const CommonCardDashBoard = ({ name, img, onClick }) => {
             justifyContent: "center",
             background:
               "linear-gradient(-65deg, var(--bg) 50%, var(--accent) 50%)",
-            textAlign: "center", // Center the text
+            textAlign: "center",
             cursor: "pointer",
             transition: "box-shadow 0.3s ease-in-out",
             width: "100%",
@@ -34,12 +34,12 @@ const CommonCardDashBoard = ({ name, img, onClick }) => {
               justifyContent: "center",
               boxShadow: 2,
               background: "white",
-              mb: 1, // Margin bottom for spacing between image and text
+              mb: 1,
               transition:
                 "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
               "&:hover": {
                 transform: "scale(1.05)",
-                boxShadow: "0px 4px 1px rgb(176,131,3)", // Larger yellow box shadow on hover
+               boxShadow: "0px 4px 1px rgba(0, 176, 89, 0.5)",
               },
             }}
           >
@@ -49,7 +49,7 @@ const CommonCardDashBoard = ({ name, img, onClick }) => {
               style={{
                 width: "55px",
                 height: "55px",
-                borderRadius: "30%", // Ensures the image is circular
+                borderRadius: "30%", 
               }}
             />
           </Box>

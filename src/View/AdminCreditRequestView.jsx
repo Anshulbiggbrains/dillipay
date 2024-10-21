@@ -474,70 +474,59 @@ const CreditRequestView = () => {
 
   return (
     <Grid  >
-          <Box sx={{
-            pb:1,
-            pt:1
-          }}>
-        <FilterCard
-        
-          // ifAsmFilter={
-          //   user.role !== "Api" && user.role !== "Ret" && user.role !== "Dd"
-          // }
-          ifStatusFilter
-          setQuery={setQuery}
-          query={query}
-          chooseInitialCategoryFilter={
-            chooseInitialCategoryFilter !== "ALL"
-              ? chooseInitialCategoryFilter
-              : false
-          }
-          refresh={refresh}
-          isShowFilterCard={isShowFilterCard}
-          setIsShowFilterCard={setIsShowFilterCard}
-          actionButtons={
+     <Box sx={{ 
+    pb: 1, 
+    pt: 1, 
+    display: 'flex', 
+    justifyContent: 'space-between',
+    alignItems: 'center'
+}}>
+    <FilterCard
+        ifStatusFilter
+        setQuery={setQuery}
+        query={query}
+        chooseInitialCategoryFilter={chooseInitialCategoryFilter !== "ALL" ? chooseInitialCategoryFilter : false}
+        refresh={refresh}
+        isShowFilterCard={isShowFilterCard}
+        setIsShowFilterCard={setIsShowFilterCard}
+        actionButtons={
             <>
-              <Tooltip title="export">
-                <ExcelUploadModal
-                  btn
-                  request={request}
-                  getExcel={getExcel}
-                  noOfResponses={noOfResponses}
-                  setQuery={setQuery}
-                  handleCloseCB={(closeModal) => {
-                    handleCloseModal = closeModal;
-                  }}
-                />
-              </Tooltip>
-
-              <Tooltip title="refresh">
-                <IconButton
-                  aria-label="refresh"
-                  sx={{
-                    color: "#0F52BA",
-                  }}
-                  onClick={() => {
-                    refreshFunc(setQuery);
-                  }}
-                >
-                  <CachedIcon className="refresh-purple " />
-                </IconButton>
-              </Tooltip>
+                <Tooltip title="export">
+                    <ExcelUploadModal
+                        btn
+                        request={request}
+                        getExcel={getExcel}
+                        noOfResponses={noOfResponses}
+                        setQuery={setQuery}
+                        handleCloseCB={(closeModal) => {
+                            handleCloseModal = closeModal;
+                        }}
+                    />
+                </Tooltip>
+                <Tooltip title="refresh">
+                    <IconButton
+                        aria-label="refresh"
+                        sx={{
+                            color: "#0F52BA",
+                        }}
+                        onClick={() => {
+                            refreshFunc(setQuery);
+                        }}
+                    >
+                        <CachedIcon className="refresh-purple " />
+                    </IconButton>
+                </Tooltip>
             </>
-   
-          }
-        />
+        }
+    />
 
-        {user && user.role === "Admin" ? (
-          ""
-        ) : user && user.role === "Asm" ? (
-          ""
-            ) : user && user.role === "Zsm" ? (
-          ""
-          
-        ) : (
-          <CreateCreditRequest refresh={refresh} />
-        )}
-      </Box>
+    {user && user.role === "Admin" ? null : user && user.role === "Asm" ? null : user && user.role === "Zsm" ? null : (
+        <Box sx={{ ml: 'auto' }}>
+            <CreateCreditRequest refresh={refresh} />
+        </Box>
+    )}
+</Box>
+
       <Grid xs={12}>
         <ApiPaginate
           apiEnd={ApiEndpoints.CRED_REQ}
