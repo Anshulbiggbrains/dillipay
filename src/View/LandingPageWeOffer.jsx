@@ -23,7 +23,7 @@ const LandingPageWeOffer = () => {
     {
       icon: <MobileFriendlyIcon />,
       head: "BILL PAYMENT ",
-      para: " Pay your bills through various methods, including credit/debit cards, bank transfers, and digital wallets. Choose the option that works best for you.",
+      para: "Pay your bills through various methods,including credit/debit cards,bank transfers,and digital wallets.Choose the option that works best for you.",
     },
     {
       icon: <MobileFriendlyIcon />,
@@ -33,7 +33,7 @@ const LandingPageWeOffer = () => {
     {
       icon: <AccountBalanceIcon />,
       head: "BANKING",
-      para: "We offer new account opening (axis bank), Indo-Nepal remittances, account deposit, withdrawal, balance enquiry, bulk transfer, payout solution. Mini ATM within a single app.",
+      para: "We offer new account opening (axis bank),Indo-Nepal remittances, account deposit, withdrawal, balance enquiry, bulk transfer, payout solution. ",
     },
     {
       icon: <VolunteerActivismIcon />,
@@ -78,7 +78,7 @@ const LandingPageWeOffer = () => {
                 mt: 1,
                 color: "#333",
                 fontStyle: "italic",
-                fontWeight: "300",
+                fontWeight: "400",
               }}
             >
               A consumer-friendly solution for mobile recharge, money transfer,
