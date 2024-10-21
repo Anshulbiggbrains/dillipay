@@ -18,7 +18,7 @@ function CustomTabs({ tabs, value, onChange, heading }) {
             "& .MuiTab-root": {
               color: "#000",
               "& .MuiSvgIcon-root": {
-                color: " #e68244",
+                color: "#CD7F32",
               },
             },
             "& .MuiTab-root.Mui-selected": {

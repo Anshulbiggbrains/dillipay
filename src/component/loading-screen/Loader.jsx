@@ -330,7 +330,7 @@ const Loader = ({ loading, children }) => {
               src={smLogo}
               style={{
                 cursor: "pointer",
-                width: 120, // Larger logo
+                width: 200, // Larger logo
                 // animation: "spin 1.5s linear infinite", // Spin animation
               }}
               alt="Loading..."
