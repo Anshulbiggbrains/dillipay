@@ -59,195 +59,167 @@ const DashboardDataComponent1 = ({
   return (
    
     <Grid
-      container
-
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "flex-start",
-        borderRadius:"8px",
-        flexDirection: "column",
-        //   borderRight: {
-        //   lg:
-        //     data === "txn" ? "" : index === len - 1 ? "" : "1px solid #DADADA",
-        //   md:
-        //     data === "txn" ? "" : index === len - 1 ? "" : "1px solid #DADADA",
-        //   xs: "",
-        //   sm: "",
-        // },
-      }}
-      // className="position-relative"
+    lg={12}
+    container
+    sx={{
+      display: "flex",
+      alignItems: "flex-start",
+      borderRadius: "10px",
+     
+      borderRight: {
+        lg: data === "txn" ? "" : index === len - 1 ? "" : "1px solid #DADADA",
+        md: data === "txn" ? "" : index === len - 1 ? "" : "1px solid #DADADA",
+        xs: "",
+        sm: "",
+      },
+    }}
+  >
+    {index === 0 && data === "wallet" && <Loader loading={PrimaryRequest} />}
+    {index === 1 && data === "wallet" && <Loader loading={TertiaryRequest} />}
+    {index === 2 && data === "wallet" && <Loader loading={walletReq} />}
+    {index === 3 && data === "wallet" && <Loader loading={bankBalReq ? bankBalReq : false} />}
+    {index === 4 && data === "wallet" && <Loader loading={apiBalReq ? apiBalReq : false} />}
+  
+    <Grid
+      item
+      onClick={() => users.name !== "API Balances" && apiRefresh()}
+      sx={{ "&:hover": { cursor: "pointer" }, width: "100%" }} 
     >
-      {index === 0 && data === "wallet" && <Loader loading={PrimaryRequest} />}
-      {index === 1 && data === "wallet" && (
-        <Loader loading={TertiaryRequest} />
-      )}
-      {index === 2 && data === "wallet" && <Loader loading={walletReq} />}
-      {index === 3 && data === "wallet" && (
-        <Loader loading={bankBalReq ? bankBalReq : false} />
-      )}
-      {index === 4 && data === "wallet" && (
-        <Loader loading={apiBalReq ? apiBalReq : false} />
-      )}
-      <Grid
-        item
-        onClick={() => users.name !== "API Balances" && apiRefresh()}
-        sx={{ "&:hover": { cursor: "pointer" } }}
+      <div
+        style={{
+          fontSize: data === "txn" ? "25px" : ""
+        }}
+        onClick={() => users.name === "API Balances" && apiRefresh()}
       >
-        <div
-          style={{
-            fontSize: data === "txn" ? "15px" : "",
-          }}
-          onClick={() => users.name === "API Balances" && apiRefresh()}
+        {users.name}{" "}
+        {data !== "txn" && (
+          <RefreshIcon
+            className="refresh-purple"
+            sx={{ fontSize: "17px" }}
+          />
+        )}
+      </div>
+  
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          width: "100%", 
+        }}
+        onClick={(e) => {
+          if (users.name === "API Balances") {
+            handleMenu(e);
+          }
+        }}
+      >
+        <Tooltip
+          title={
+            data === "txn" ? "" : users.name === "Wallet Balance" ? (
+              <>
+                <div>w1: {currencySetter(w1)}</div>
+                <div>w2: {currencySetter(w2)}</div>
+              </>
+            ) : currencySetter(users.balance)
+          }
         >
-          {users.name}{" "}
-          {data !== "txn" && (
-            <RefreshIcon
-              className="refresh-purple"
-              sx={{
-                fontSize: "16px",
-              }}
-            />
-          )}
-        </div>
-
-        <div
-          style={{
+          <div
+            style={{
+              display: "flex",
+              alignItems: "baseline",
+              marginLeft: "6%",
+            }}
+          >
+            <Typography sx={{ fontSize: data === "txn" ? "16px" : "22px" }}>
+              {data === "txn" ? users.balance : Number(users.balance / 10000000).toFixed(2)}
+            </Typography>
+            {data !== "txn" && (
+              <div style={{ marginLeft: "2px", fontSize: "12px" }}>Cr</div>
+            )}
+          </div>
+        </Tooltip>
+  
+        <Box
+          sx={{
+            fontSize: "10px",
+            color: users.increased ? "#00BF78" : "#DC5F5F",
             display: "flex",
             alignItems: "center",
-          }}
-          onClick={(e) => {
-            if (users.name === "API Balances") {
-              handleMenu(e);
-            }
+            mt: { xs: 1, sm: 0 },
+            mr: 2
           }}
         >
-          {/* <BarChartIcon sx={{ mr: 1, color: users.color }} /> */}
-          <Tooltip
-            title={
-              data === "txn" ? (
-                ""
-              ) : users.name === "Wallet Balance" ? (
-                <>
-                  <div>w1: {currencySetter(w1)}</div>
-                  <div>w2: {currencySetter(w2)}</div>
-                </>
-              ) : (
-                currencySetter(users.balance)
-              )
-            }
+          {users.increased ? (
+            <NorthIcon sx={{ fontSize: { xs: "14px", sm: "16px" } }} />
+          ) : (
+            <SouthIcon sx={{ fontSize: { xs: "14px", sm: "18px" } }} />
+          )}
+          <Typography
+            sx={{ fontSize: { xs: "10px", sm: "12px" }, ml: 0.5 }}
           >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "baseline",
-                marginLeft:"5%"
+            54.3%
+          </Typography>
+        </Box>
+      </div>
+  
+      <Menu
+        id="menu-appbar"
+        anchorEl={anchorEl}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "left",
+        }}
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+        style={{
+          paddingTop: "0rem",
+          width: "350px",
+          height: "auto",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+        ref={apiBalRef}
+      >
+        {apiBalancesData?.length > 0 &&
+          apiBalancesData.map((item) => (
+            <MenuItem
+              key={item.bankName}
+              disableRipple
+              sx={{
+                marginTop: "-8px",
+                width: "inherit",
+                minWidth: "280px",
+                "&:hover": {
+                  backgroundColor: "#FFF",
+                  cursor: "default",
+                },
               }}
             >
-              <Typography sx={{ fontSize: data === "txn" ? "18px" : "24px" }}>
-                {data === "txn"
-                  ? users.balance
-                  : Number(users.balance / 10000000).toFixed(2)}
-              </Typography>
-              {data !== "txn" && (
-                <div
-                  style={{
-                    marginLeft: "2px",
-                    fontSize: "12px",
-                  }}
-                >
-                  Cr
-               
-                </div>
-             
-              )}
-                 <Box
+              <Box
                 sx={{
-                  fontSize: "10px",
-                  color: users.increased ? "#00BF78" : "#DC5F5F",
+                  px: 0.7,
                   display: "flex",
-                  alignItems: "left",
-                  justifyContent: { xs: "flex-start", sm: "flex-end" }, 
-                  mt: { xs: 1, sm: 0 },
-                  width: { xs: "100%", sm: "auto" },
-                  ml:2
+                  justifyContent: "space-between",
+                  width: "100%",
                 }}
               >
-                {users.increased ? (
-                  <NorthIcon sx={{  fontSize: { xs: "14px", sm: "16px" } }} />
-                ) : (
-                  <SouthIcon sx={{ fontSize: { xs: "14px", sm: "18px" } }} />
-                )}
-                <Typography
-                  sx={{ fontSize: { xs: "10px", sm: "12px" }, ml: 0.5 }}
-                >
-                  54.3%
-                </Typography>
+                <span style={{ fontSize: "14px" }}>{item.bankName}</span>
+                <span style={{ fontSize: "14px" }}>{currencySetter(item.bankBalance)}</span>
               </Box>
-            </div>
-          </Tooltip>
-        </div>
-        {/* when api balances we make the below section a menu item */}
-        <Menu
-          id="menu-appbar"
-          anchorEl={anchorEl}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "center",
-          }}
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "left",
-          }}
-          open={Boolean(anchorEl)}
-          onClose={handleClose}
-          style={{
-            paddingTop: "0rem",
-            width: "350px",
-            height: "auto",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-          ref={apiBalRef}
-        >
-          {apiBalancesData?.length > 0 &&
-            apiBalancesData.map((item) => {
-              return (
-                <MenuItem
-                  disableRipple
-                  sx={{
-                    marginTop: "-8px",
-                    width: "inherit",
-                    minWidth: "280px",
-                    "&:hover": {
-                      backgroundColor: "#FFF",
-                      cursor: "default",
-                    },
-                  }}
-                >
-                  <Box
-                    sx={{
-                      px: 0.7,
-                      display: "flex",
-                      justifyContent: "space-between",
-                      width: "100%",
-                    }}
-                  >
-                    {" "}
-                    <span style={{ fontSize: "14px" }}>{item.bankName}</span>
-                    <span style={{ fontSize: "14px" }}>
-                      {currencySetter(item.bankBalance)}
-                    </span>
-                  </Box>
-                </MenuItem>
-              );
-            })}
-        </Menu>
-      </Grid>
-      <MyEarningsModal users={users} />
+            </MenuItem>
+          ))}
+      </Menu>
     </Grid>
+  
+    <MyEarningsModal users={users} />
+  </Grid>
+  
+  
 
   );
 };

@@ -86,6 +86,7 @@ const NavItemComponent = ({
             justifyContent: open ? "initial" : "center",
             backgroundColor: isCurrentActive ? "#D48628" : "",
             backdropFilter: isCurrentActive ? "blur(5px)" : "",
+
             border: isCurrentActive
               ? "1px solid rgba(159, 134, 192, 0.3)"
               : "",
@@ -115,6 +116,7 @@ const NavItemComponent = ({
               src={item.icon}
               alt=""
               style={{
+                
                 filter: isCurrentActive
                   ? "brightness(0) saturate(100%) invert(100%)"
                   : "",
@@ -128,7 +130,7 @@ const NavItemComponent = ({
             disableTypography
             sx={{
               opacity: open ? 1 : 0,
-              color: isCurrentActive ? "white" : "white",
+              color: isCurrentActive ? "#fff" : "#fff",
               fontSize: "16px",
               fontFamily: "Montserrat, sans-serif",
               "&:hover": {
