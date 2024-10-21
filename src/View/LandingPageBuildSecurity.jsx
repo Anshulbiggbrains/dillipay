@@ -62,7 +62,7 @@ const LandingPageBuildSecurity = () => {
                   },
                   fontWeight: "700",
                   display: "flex",
-                  justifyContent: index % 2 === 0 ? "left" : "flex-end",
+                  justifyContent: index % 2 === 0 ? "flex-start" : "flex-end",
                   alignItems: "center",
                   mb: 2,
                 }}
@@ -76,27 +76,20 @@ const LandingPageBuildSecurity = () => {
                 sx={{
                   textAlign: "justify",
                   display: "flex",
-                  marginLeft: {
-                    lg: "8rem",
-                    md: "8rem",
-                    sm: "0rem",
-                    xs: "0rem",
-                  },
-                  width: {
-                    lg: "40%",
-                    md: "40%",
-                    sm: "100%",
-                    xs: "100%",
-                  },
-                  justifyContent: index === 1 ? "flex-end" : "flex-start", // Align right for "Secure"
+                  justifyContent: index % 2 === 0 ? "flex-start" : "flex-end",
+                  width: "100%",
                 }}
               >
                 <span
                   className="landing-bg_para"
                   style={{
                     color: "#555",
-                    textAlign: index === 1 ? "right" : "left",
-                    width: index === 1 ? "100%" : "auto", // Ensure full width for right alignment
+                    textAlign: index % 2 === 0 ? "left" : "right",
+                    width: "100%",
+                    marginTop: "1rem", // Margin for separation
+                    lineHeight: "1.5", // Adjust line height for readability
+                    maxWidth: "600px", // Set a max width for wrapping
+                    whiteSpace: "normal", // Allow text to wrap normally
                   }}
                 >
                   {index === 0 &&
