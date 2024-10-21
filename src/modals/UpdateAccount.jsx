@@ -125,7 +125,7 @@ const UpdateAccount = ({ row, refresh }) => {
             borderRadius: "8px  ",
             transition: "all 0.3s ease",
             justifyContent: "center",
-            background: "#1877f2",
+            background: "#00693E",
             "&:hover": {
               backgroundColor: "#122480",
             },

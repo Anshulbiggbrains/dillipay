@@ -211,14 +211,10 @@ const AdminWalletBalanceComponent = ({
     md={12}
     lg={12}
     sx={{
-      backgroundColor: "#fff",
       borderRadius: "8px",
-      padding: "1rem",
-      boxShadow:
-        "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
+      // padding: "1rem",
       width: { lg: "100%", md: "100%", sm: "100%" },
       ml: { lg: "0", md: "0", xs: "0" },
-      // mr: { lg: "1.5%", md: 0, xs: 0 },
     }}
   >
     {user && (user.role === "Asm" || user.role === "Zsm")
@@ -226,16 +222,16 @@ const AdminWalletBalanceComponent = ({
           <Grid
             key={index}
             item
-            xs={6} // Full width on small screens
-            sm={6}  // Half width on small to medium screens
-            md={2.8}  // Quarter width on medium screens
+            xs={2.8} 
+            sm={6} 
+            md={2.8} 
             sx={{
               ml:2,
               mb: { sm: 2, md: 2, xs: 2 },
-              display: 'flex', // Use flex to allow children to take full space
-              flexDirection: 'column', // Align children in a column
+              display: 'flex', 
+              flexDirection: 'row', 
               height: '100%',
-              boxShadow:1 // Ensure the Grid item takes full height
+              boxShadow:1 
             }}
           >
             <DashboardDataComponent1
@@ -253,7 +249,7 @@ const AdminWalletBalanceComponent = ({
               TertiaryRequest={trequest}
               walletReq={walletBalReq}
               bankBalReq={bankBalReq}
-              sx={{ flex: 1 }} // Make sure the component takes full available space
+              sx={{ flex: 1 }} 
             />
           </Grid>
         ))
@@ -261,14 +257,14 @@ const AdminWalletBalanceComponent = ({
           <Grid
             key={index}
             item
-            xs={12} // Full width on small screens
-            sm={6}  // Half width on small to medium screens
-            md={2.8}  // Quarter width on medium screens
+            xs={6}
+            sm={5.5}  
+            md={2.8} 
             sx={{
               ml:2,
+              borderRadius: "5px",
               mb: { sm: 2, md: 2, xs: 2 },
-              display: 'flex',
-              flexDirection: 'column',
+              width:"100%",
               boxShadow:1,
               height: '100%',
             }}
@@ -291,7 +287,7 @@ const AdminWalletBalanceComponent = ({
               walletReq={walletBalReq}
               bankBalReq={bankBalReq}
               apiBalReq={apiBalReq}
-              sx={{ flex: 1 }} // Make sure the component takes full available space
+              
             />
           </Grid>
         ))}

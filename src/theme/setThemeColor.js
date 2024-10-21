@@ -5,7 +5,7 @@ export const primaryColor = () => {
 };
 export const primaryLight = () => {
   if (process.env.REACT_APP_TITLE === "DilliPay") {
-    return "#1877F2";
+    return "#00693E";
   }
 };
 export const primaryLightest = () => {

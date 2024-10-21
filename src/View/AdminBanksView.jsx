@@ -130,7 +130,8 @@ const AdminBanksView = () => {
                   borderRadius: "8px",
                   transition: "all 0.3s ease",
                   justifyContent: "center",
-                  background: "linear-gradient(45deg, #ff9248, 	#ff6600)",
+                  // background: "linear-gradient(45deg, #ff9248, 	#ff6600)",
+                  background: "#00A86B",
                   boxShadow: "0px 4px 15px rgba(255, 165, 0, 0.5)",
                   "&:hover": {
                     boxShadow: "0px 6px 20px rgba(255, 165, 0, 0.5)",

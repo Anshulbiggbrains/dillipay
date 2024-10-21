@@ -145,14 +145,14 @@ const BcPdf = ({ user }) => {
         {/* footer */}
         <View style={{ position: "absolute", bottom: "16px", left: "48px" }}>
           <Text
-            style={{ fontSize: "8px", color: "#1877f2", marginBottom: "0px" }}
+            style={{ fontSize: "8px", color: "#00693E", marginBottom: "0px" }}
           >
             LINKSTECH SERVICES PRIVATE LIMITED s Private Limited |{" "}
             <Text style={{ marginBottom: "0px" }}>
               CIN: U74999DL2017PTC316608
             </Text>
           </Text>
-          <Text style={{ marginBottom: "10px", color: "#1877f2" }}>
+          <Text style={{ marginBottom: "10px", color: "#00693E" }}>
             __________________________________________________
           </Text>
 
@@ -179,7 +179,7 @@ const BcPdf = ({ user }) => {
               <Text
                 style={{
                   fontSize: "8px",
-                  color: "#1877f2",
+                  color: "#00693E",
                   marginBottom: "0px",
                 }}
               >
@@ -201,7 +201,7 @@ const BcPdf = ({ user }) => {
               <Text
                 style={{
                   fontSize: "8px",
-                  color: "#1877f2",
+                  color: "#00693E",
                   marginBottom: "0px",
                 }}
               >
@@ -222,7 +222,7 @@ const BcPdf = ({ user }) => {
               <Text
                 style={{
                   fontSize: "8px",
-                  color: "#1877f2",
+                  color: "#00693E",
                   marginBottom: "0px",
                 }}
               >
@@ -243,7 +243,7 @@ const BcPdf = ({ user }) => {
               <Text
                 style={{
                   fontSize: "8px",
-                  color: "#1877f2",
+                  color: "#00693E",
                   marginBottom: "0px",
                 }}
               >
@@ -382,14 +382,14 @@ const BcPdf = ({ user }) => {
         {/* footer */}
         <View style={{ position: "absolute", bottom: "16px", left: "48px" }}>
           <Text
-            style={{ fontSize: "8px", color: "#1877f2", marginBottom: "0px" }}
+            style={{ fontSize: "8px", color: "#00693E", marginBottom: "0px" }}
           >
             LINKSTECH SERVICES PRIVATE LIMITED s Private Limited |{" "}
             <Text style={{ marginBottom: "0px" }}>
               CIN: U74999DL2017PTC316608
             </Text>
           </Text>
-          <Text style={{ marginBottom: "10px", color: "#1877f2" }}>
+          <Text style={{ marginBottom: "10px", color: "#00693E" }}>
             __________________________________________________
           </Text>
 
@@ -416,7 +416,7 @@ const BcPdf = ({ user }) => {
               <Text
                 style={{
                   fontSize: "8px",
-                  color: "#1877f2",
+                  color: "#00693E",
                   marginBottom: "0px",
                 }}
               >
@@ -438,7 +438,7 @@ const BcPdf = ({ user }) => {
               <Text
                 style={{
                   fontSize: "8px",
-                  color: "#1877f2",
+                  color: "#00693E",
                   marginBottom: "0px",
                 }}
               >
@@ -459,7 +459,7 @@ const BcPdf = ({ user }) => {
               <Text
                 style={{
                   fontSize: "8px",
-                  color: "#1877f2",
+                  color: "#00693E",
                   marginBottom: "0px",
                 }}
               >
@@ -480,7 +480,7 @@ const BcPdf = ({ user }) => {
               <Text
                 style={{
                   fontSize: "8px",
-                  color: "#1877f2",
+                  color: "#00693E",
                   marginBottom: "0px",
                 }}
               >
@@ -652,14 +652,14 @@ const BcPdf = ({ user }) => {
         {/* </View> */}
         <View style={{ position: "absolute", bottom: "16px", left: "48px" }}>
           <Text
-            style={{ fontSize: "8px", color: "#1877f2", marginBottom: "0px" }}
+            style={{ fontSize: "8px", color: "#00693E", marginBottom: "0px" }}
           >
             LINKSTECH SERVICES PRIVATE LIMITED s Private Limited |{" "}
             <Text style={{ marginBottom: "0px" }}>
               CIN: U74999DL2017PTC316608
             </Text>
           </Text>
-          <Text style={{ marginBottom: "10px", color: "#1877f2" }}>
+          <Text style={{ marginBottom: "10px", color: "#00693E" }}>
             __________________________________________________
           </Text>
           {/* footer */}
@@ -686,7 +686,7 @@ const BcPdf = ({ user }) => {
               <Text
                 style={{
                   fontSize: "8px",
-                  color: "#1877f2",
+                  color: "#00693E",
                   marginBottom: "0px",
                 }}
               >
@@ -708,7 +708,7 @@ const BcPdf = ({ user }) => {
               <Text
                 style={{
                   fontSize: "8px",
-                  color: "#1877f2",
+                  color: "#00693E",
                   marginBottom: "0px",
                 }}
               >
@@ -729,7 +729,7 @@ const BcPdf = ({ user }) => {
               <Text
                 style={{
                   fontSize: "8px",
-                  color: "#1877f2",
+                  color: "#00693E",
                   marginBottom: "0px",
                 }}
               >
@@ -750,7 +750,7 @@ const BcPdf = ({ user }) => {
               <Text
                 style={{
                   fontSize: "8px",
-                  color: "#1877f2",
+                  color: "#00693E",
                   marginBottom: "0px",
                 }}
               >

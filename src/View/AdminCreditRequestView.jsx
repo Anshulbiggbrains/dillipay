@@ -211,7 +211,7 @@ const CreditRequestView = () => {
             {row.username}
             <Tooltip title="Go To Account">
               <IconButton
-                sx={{ color: "#1877F2", mx: 0.5, mb: 0.4 }}
+                sx={{ color: "#00693E", mx: 0.5, mb: 0.4 }}
                 onClick={() => {
                   navigate("/admin/accountStatement", {
                     state: {

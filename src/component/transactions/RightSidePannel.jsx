@@ -191,7 +191,7 @@ export default function RightSidePannel({ row }) {
                         <IconButton onClick={downloadScreenshot}>
                           <Icon
                             icon="lucide:download"
-                            style={{ fontSize: "20px", color: "#1877F2" }}
+                            style={{ fontSize: "20px", color: "#00693E" }}
                           />
                         </IconButton>
                       </Tooltip>

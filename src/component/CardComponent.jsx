@@ -33,7 +33,7 @@ const CardComponent = ({ title, img, onClick, height, py, px, isSelected = false
           mt: 2,
           overflow: 'hidden',
           position: 'relative',
-          border: isSelected ? '2px solid #1877F2' : '2px solid transparent',
+          border: isSelected ? '2px solid #00693E' : '2px solid transparent',
           '&:hover': {
             transform: 'scale(1.05)',
             boxShadow: 4,

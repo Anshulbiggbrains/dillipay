@@ -30,7 +30,7 @@ const BbpsCardComponent = ({ title, img, onClick, height, isSelected = false }) 
           overflow: 'hidden',
           backgroundClip: 'padding-box',
           position: 'relative',
-          border: isSelected ? '2px solid #1877F2' : '2px solid transparent', // Highlight border if selected
+          border: isSelected ? '2px solid #00693E' : '2px solid transparent', // Highlight border if selected
 
           '&:hover': {
             transform: 'scale(1.05)',

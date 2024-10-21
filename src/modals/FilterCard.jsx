@@ -1390,7 +1390,7 @@ const FilterCard = ({
               <Button
                 variant="contained"
                 sx={{
-                  backgroundColor: "#f39c12",
+                  backgroundColor: "#008B8B",
                   color: "white",
                   padding: "6px ",
                   fontSize: "13px",
@@ -1399,7 +1399,7 @@ const FilterCard = ({
                   boxShadow: "0px 4px 12px rgba(243, 156, 18, 0.3)",
                   transition: "all 0.3s ease",
                   "&:hover": {
-                    backgroundColor: "#e67e22",
+                    backgroundColor: "#004953",
                     borderRadius: "8px",
                     boxShadow: "0px 6px 14px rgba(230, 126, 34, 0.3)",
                     transform: "scale(1)",
