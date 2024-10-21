@@ -42,8 +42,6 @@ let refreshFilter;
 
 // tabs in top bar
 
-
-
 const AdminSettelments = () => {
   const theme = useTheme();
   const [apiData, setApiData] = useState([]);
@@ -55,7 +53,6 @@ const AdminSettelments = () => {
   //   const role = user?.role;
   const [value, setValue] = useState(0);
   const [currentType, setCurrentType] = useState();
- 
 
   const searchOptions = [
     { field: "AC Name", parameter: "acc_name" },
@@ -65,9 +62,6 @@ const AdminSettelments = () => {
     { field: "AC Name", parameter: "acc_name" },
     { field: "AC Number", parameter: "acc_no" },
   ];
-
- 
-
 
   const settlementBeneficiarys = [
     {
@@ -162,7 +156,6 @@ const AdminSettelments = () => {
         </div>
       ),
       center: true,
-      width: "130px",
     },
     {
       name: "Actions",
@@ -170,39 +163,75 @@ const AdminSettelments = () => {
       center: true,
     },
   ];
-  
- 
-  return (
 
-      <Grid container>
-      
-   
-      
-        {/* 1  "Settlement Beneficiary's" */}
-        <Grid item md={12} sm={12} xs={12}>
-        
-            <ApiPaginateSearch
-              showSearch={true}
-              actionButtons={
-                <Grid
-                  item
-                  md={12}
-                  sm={12}
-                  xs={12}
+  return (
+    <Grid container>
+      {/* 1  "Settlement Beneficiary's" */}
+      <Grid item md={12} sm={12} xs={12}>
+        <ApiPaginateSearch
+          showSearch={true}
+          actionButtons={
+            <Grid
+              item
+              md={12}
+              sm={12}
+              xs={12}
+              sx={{
+                display: "flex",
+                justifyContent: { md: "end", xs: "start" },
+                alignItems: "center",
+                pr: 1,
+                mt: { md: 0, xs: 2, sm: 2 },
+              }}
+            >
+              <Tooltip title="refresh">
+                <IconButton
+                  aria-label="refresh"
+                  // color="success"
                   sx={{
-                    display: "flex",
-                    justifyContent: { md: "end", xs: "start" },
-                    alignItems: "center",
-                    pr: 1,
-                    mt: { md: 0, xs: 2, sm: 2 },
+                    color: "#0F52BA",
+                  }}
+                  onClick={() => {
+                    refreshFunc(setQuery);
                   }}
                 >
+                  <CachedIcon className="refresh-purple" />
+                </IconButton>
+              </Tooltip>
+            </Grid>
+          }
+          apiEnd={ApiEndpoints.PAYOUT_BENES}
+          searchOptions={searchOptions}
+          setQuery={setQuery}
+          columns={settlementBeneficiarys}
+          apiData={apiData}
+          setApiData={setApiData}
+          tableStyle={CustomStyles}
+          queryParam={query ? query : ""}
+          returnRefetch={(ref) => {
+            refresh = ref;
+          }}
+          isFilterAllowed={true}
+          filterComponent={
+            <FilterCard
+              showSearch={false}
+              ifBeneKycStatus
+              setQuery={setQuery}
+              query={query}
+              clearHookCb={(cb) => {
+                refreshFilter = cb;
+              }}
+              refresh={refresh}
+              actionButtons={
+                <>
                   <Tooltip title="refresh">
                     <IconButton
                       aria-label="refresh"
                       // color="success"
                       sx={{
                         color: "#0F52BA",
+
+                        ml: -2,
                       }}
                       onClick={() => {
                         refreshFunc(setQuery);
@@ -211,58 +240,13 @@ const AdminSettelments = () => {
                       <CachedIcon className="refresh-purple" />
                     </IconButton>
                   </Tooltip>
-                </Grid>
-              }
-              apiEnd={ApiEndpoints.PAYOUT_BENES}
-              searchOptions={searchOptions}
-              setQuery={setQuery}
-              columns={settlementBeneficiarys}
-              apiData={apiData}
-              setApiData={setApiData}
-              tableStyle={CustomStyles}
-              queryParam={query ? query : ""}
-              returnRefetch={(ref) => {
-                refresh = ref;
-              }}
-              isFilterAllowed={true}
-              filterComponent={
-                <FilterCard
-                  showSearch={false}
-                  ifBeneKycStatus
-                  setQuery={setQuery}
-                  query={query}
-                  clearHookCb={(cb) => {
-                    refreshFilter = cb;
-                  }}
-                  refresh={refresh}
-                  actionButtons={
-                    <>
-                      <Tooltip title="refresh">
-                        <IconButton
-                          aria-label="refresh"
-                          // color="success"
-                          sx={{
-                            color: "#0F52BA",
-
-                            ml: -2,
-                          }}
-                          onClick={() => {
-                            refreshFunc(setQuery);
-                          }}
-                        >
-                          <CachedIcon className="refresh-purple" />
-                        </IconButton>
-                      </Tooltip>
-                    </>
-                  }
-                />
+                </>
               }
             />
-         
-        </Grid>
-       
+          }
+        />
       </Grid>
-  
+    </Grid>
   );
 };
 

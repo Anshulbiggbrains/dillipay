@@ -19,31 +19,24 @@ const LoginHistory = () => {
   const user = authCtx?.user;
   const columns = [
     {
-      name: "ID",
-      selector: (row) => <div className="blue-highlight-txt">{row.id}</div>,
-      width: "70px",
-    },
-    {
       name: "User Id",
-      selector: (row) => <>{user.name}</>,
-      center: true,
+      selector: (row) => <>{user.establishment}</>,
+      center: false,
     },
     {
-      name: "Created At",
+      name: "Login At",
       selector: (row) => (
         <div>
           {ddmmyy(row.created_at)} {dateToTime(row.created_at)}
         </div>
       ),
-      center: true,
     },
     {
       name: "Login Ip",
       selector: (row) => row.ip,
-      center: true,
     },
     {
-      name: "Device",
+      name: "Login Device",
       selector: (row) => {
         let icon;
 
@@ -51,7 +44,7 @@ const LoginHistory = () => {
           icon = (
             <img
               src={windows2}
-              style={{ width: "22px" }}
+              style={{ width: "23px" }}
               alt="description of image"
             />
           );
@@ -59,7 +52,7 @@ const LoginHistory = () => {
           icon = (
             <img
               src={android2}
-              style={{ width: "22px" }}
+              style={{ width: "23px" }}
               alt="description of image"
             />
           );
@@ -67,7 +60,7 @@ const LoginHistory = () => {
           icon = (
             <img
               src={macintosh2}
-              style={{ width: "22px" }}
+              style={{ width: "23px" }}
               alt="description of image"
             />
           );
@@ -75,12 +68,12 @@ const LoginHistory = () => {
           icon = (
             <img
               src={linux2}
-              style={{ width: "22px" }}
+              style={{ width: "23px" }}
               alt="description of image"
             />
           );
         } else {
-          icon = <LaptopIcon sx={{ color: "blue", width: "22px" }} />;
+          icon = <LaptopIcon sx={{ color: "blue", width: "23px" }} />;
         }
 
         return (
@@ -90,14 +83,17 @@ const LoginHistory = () => {
               alignItems: "center",
               fontSize: "13px",
               textAlign: "justify",
+              gap: 2,
             }}
           >
             {icon}
-            {/* <Typography>{row.device}</Typography> */}
+            <Typography>{row.device}</Typography>
           </Box>
         );
       },
-      center: true,
+
+      width: "600px",
+      wrap: true,
     },
   ];
 
