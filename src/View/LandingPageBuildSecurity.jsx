@@ -88,9 +88,17 @@ const LandingPageBuildSecurity = () => {
                     sm: "100%",
                     xs: "100%",
                   },
+                  justifyContent: index === 1 ? "flex-end" : "flex-start", // Align right for "Secure"
                 }}
               >
-                <span className="landing-bg_para" style={{ color: "#555" }}>
+                <span
+                  className="landing-bg_para"
+                  style={{
+                    color: "#555",
+                    textAlign: index === 1 ? "right" : "left",
+                    width: index === 1 ? "100%" : "auto", // Ensure full width for right alignment
+                  }}
+                >
                   {index === 0 &&
                     "We ensure you get a good night’s sleep with your money staying with large and highly stable banks in India."}
                   {index === 1 &&
