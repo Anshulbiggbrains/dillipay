@@ -251,7 +251,7 @@ const AdminDashboard = ({
             container
             columnSpacing={1.5}
             md={3.8}
-            sm={6}
+            sm={11}
             xs={6}
             lg={3.8}
             sx={{
