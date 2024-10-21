@@ -43,11 +43,11 @@ console.log("user is ",user);
           onClick={handleClick}
           sx={{
             border: isCurrentActive ? "1px solid rgba(159, 134, 192, 0.3)" : "",
-            backgroundColor: isCurrentActive ? "#1877F2" : "",
+            backgroundColor: isCurrentActive ? "#00693E" : "",
 
             justifyContent: open ? "initial" : "center",
             "&:hover": {
-              backgroundColor: isCurrentActive?"#1877F2":"",
+              backgroundColor: isCurrentActive?"#00693E":"",
 
               color: whiteColor(),
               // backgroundColor: `gray`,
@@ -123,11 +123,11 @@ console.log("user is ",user);
                     sx={{
                       // pl: open ? 4 : 1.45,
                       justifyContent: open ? "initial" : "center",
-                      backgroundColor: isCurrentActive ? `#1877f2` : "#fff",
+                      backgroundColor: isCurrentActive ? `#00693E` : "#fff",
                       backdropFilter: isCurrentActive ? "blur(5px)" : "",
                       "&:hover": {
                         // color: whiteColor(),
-                        backgroundColor: `#1877f2`,
+                        backgroundColor: `#00693E`,
                         // "& .submenu-title": {
                         //   color: whiteColor(),
                         // },

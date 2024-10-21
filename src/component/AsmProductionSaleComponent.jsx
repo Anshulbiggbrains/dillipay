@@ -216,7 +216,7 @@ const AsmProductionSaleComponent = () => {
                 btn={
                   <Icon
                     icon="heroicons-outline:currency-rupee"
-                    style={{ fontSize: "24px", color: "#1877F2" }}
+                    style={{ fontSize: "24px", color: "#00693E" }}
                   />
                 }
                 width="30px"
@@ -359,7 +359,7 @@ const AsmProductionSaleComponent = () => {
           <IconButton sx={{ mx: 2 }} onClick={downloadScreenshot}>
             <Icon
               icon="lucide:download"
-              style={{ fontSize: "24px", color: "#1877F2" }}
+              style={{ fontSize: "24px", color: "#00693E" }}
             />
           </IconButton>
         </Tooltip>

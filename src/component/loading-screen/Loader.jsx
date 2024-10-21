@@ -59,7 +59,7 @@
 //               height: 100,
 //               position: "absolute",
 //               borderRadius: 4,
-//               border: "solid 5px #1877F2"
+//               border: "solid 5px #00693E"
 //             }}
 //           />
 //           <Box
@@ -154,7 +154,7 @@
 //         .circle1 {
 //           width: 200px;
 //           height: 200px;
-//           border: 8px solid #1877F2;
+//           border: 8px solid #00693E;
 //           animation-delay: 0s; /* Starts immediately */
 //         }
 
@@ -258,7 +258,7 @@
 //         .loader-bar {
 //           width: 100px;
 //           height: 6px;
-//           background: #1877F2;
+//           background: #00693E;
 //           border-radius: 3px; /* Rounded edges */
 //           margin-top: 15px; /* Space between logo and bar */
 //           animation: loading 1.5s linear infinite; /* Loading animation */
@@ -331,7 +331,7 @@ const Loader = ({ loading, children }) => {
               style={{
                 cursor: "pointer",
                 width: 120, // Larger logo
-                animation: "spin 1.5s linear infinite", // Spin animation
+                // animation: "spin 1.5s linear infinite", // Spin animation
               }}
               alt="Loading..."
             />

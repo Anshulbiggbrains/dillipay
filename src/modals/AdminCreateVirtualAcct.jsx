@@ -132,7 +132,7 @@ const AdminCreateVirtualAcct = ({ row, refresh ,user}) => {
                 <IconButton sx={{ mx: 2 }} onClick={downloadScreenshot}>
                   <Icon
                     icon="lucide:download"
-                    style={{ fontSize: "24px", color: "#1877F2" }}
+                    style={{ fontSize: "24px", color: "#00693E" }}
                   />
                 </IconButton>
               </Tooltip>

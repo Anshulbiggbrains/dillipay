@@ -19,7 +19,7 @@ const CustomDrawer = ({ open, onClose, rowData }) => {
           {rowData ? JSON.stringify(rowData) : 'No data selected'}
         </Typography>
         {/* You can add more content or components here */}
-        <IconButton onClick={onClose} sx={{ color: "#1877F2" }}>
+        <IconButton onClick={onClose} sx={{ color: "#00693E" }}>
           <Icon icon="ic:round-close" width={26} height={26} />
         </IconButton>
       </Box>
