@@ -48,7 +48,7 @@ const CommonStatus = ({
       sx={{
         display: "flex",
         alignItems: "center",
-        padding: "8px",
+        padding: "8px 10px",
         minWidth: minWidth,
         maxWidth: maxWidth,
         fontSize: fontSize,
