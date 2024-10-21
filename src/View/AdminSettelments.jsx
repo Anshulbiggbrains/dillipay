@@ -170,36 +170,36 @@ const AdminSettelments = () => {
       <Grid item md={12} sm={12} xs={12}>
         <ApiPaginateSearch
           showSearch={true}
-          actionButtons={
-            <Grid
-              item
-              md={12}
-              sm={12}
-              xs={12}
-              sx={{
-                display: "flex",
-                justifyContent: { md: "end", xs: "start" },
-                alignItems: "center",
-                pr: 1,
-                mt: { md: 0, xs: 2, sm: 2 },
-              }}
-            >
-              <Tooltip title="refresh">
-                <IconButton
-                  aria-label="refresh"
-                  // color="success"
-                  sx={{
-                    color: "#0F52BA",
-                  }}
-                  onClick={() => {
-                    refreshFunc(setQuery);
-                  }}
-                >
-                  <CachedIcon className="refresh-purple" />
-                </IconButton>
-              </Tooltip>
-            </Grid>
-          }
+          // actionButtons={
+          //   // <Grid
+          //   //   item
+          //   //   md={12}
+          //   //   sm={12}
+          //   //   xs={12}
+          //   //   sx={{
+          //   //     display: "flex",
+          //   //     justifyContent: { md: "end", xs: "start" },
+          //   //     alignItems: "center",
+          //   //     pr: 1,
+          //   //     mt: { md: 0, xs: 2, sm: 2 },
+          //   //   }}
+          //   // >
+          //   //   {/* <Tooltip title="refresh">
+          //   //     <IconButton
+          //   //       aria-label="refresh"
+          //   //       // color="success"
+          //   //       sx={{
+          //   //         color: "#0F52BA",
+          //   //       }}
+          //   //       onClick={() => {
+          //   //         refreshFunc(setQuery);
+          //   //       }}
+          //   //     >
+          //   //       <CachedIcon className="refresh-purple" />
+          //   //     </IconButton>
+          //   //   </Tooltip> */}
+          //   // </Grid>
+          // }
           apiEnd={ApiEndpoints.PAYOUT_BENES}
           searchOptions={searchOptions}
           setQuery={setQuery}

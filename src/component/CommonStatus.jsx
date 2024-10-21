@@ -65,7 +65,7 @@ const CommonStatus = ({
           status === "OPEN"
             ? "linear-gradient(45deg, #1ee383, #16de4c)"
             : status === 2 || status === "PENDING"
-            ? "linear-gradient(45deg, #DB9D00, #f0c324)"
+            ? "#808000"
             : status === 0 || status === "REJECTED" || status === "FAILED"
             ? "linear-gradient(45deg, 	#ff5252, #ea4444)"
             : status === "REFUND"
